@@ -1,13 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
 @import "tailwindcss";
 
 /* Enable class-based dark mode (default = light, toggled via next-themes) */
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme inline {
-  --font-display: 'Sora', ui-sans-serif, system-ui, sans-serif;
-  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
-  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+  --font-display: 'Sora Variable', 'Sora', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'Inter Variable', 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono Variable', 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
 
   /* Raw brand palette */
   --color-turquoise: #6EC5D2;
@@ -175,4 +174,49 @@ body {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+
+/* ── Dashboard surfaces ─────────────────────────────────────────────
+   Kept unlayered on purpose: the global `* { border-color }` rule above
+   would otherwise win over Tailwind border-color utilities. */
+.panel {
+  position: relative;
+  transition: border-color 0.2s ease, box-shadow 0.25s ease;
+}
+.panel:hover {
+  border-color: color-mix(in srgb, var(--color-turquoise) 55%, transparent);
+  box-shadow: 0 16px 36px -20px color-mix(in srgb, var(--color-night) 55%, transparent);
+}
+/* soft cursor-following glow */
+.panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background: radial-gradient(
+    260px circle at var(--mx, 50%) var(--my, 50%),
+    color-mix(in srgb, var(--color-turquoise) 20%, transparent),
+    transparent 70%
+  );
+}
+.panel:hover::before {
+  opacity: 1;
+}
+
+.tile {
+  border: 1px solid var(--color-border);
+  background: color-mix(in srgb, var(--color-background) 55%, transparent);
+  transition: transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+}
+.tile:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-turquoise);
+  background: color-mix(in srgb, var(--color-turquoise) 10%, var(--color-surface));
+}
+.tile-dashed {
+  border-style: dashed;
 }
