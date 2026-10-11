@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { MapPin } from "lucide-react";
-import { socials, site } from "@/lib/data-old";
+import { socials, site } from "@/lib/data";
 
 export function SocialLinks() {
   return (

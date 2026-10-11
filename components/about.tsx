@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { GraduationCap, MapPin, Sparkles } from "lucide-react";
-import { site } from "@/lib/data-old";
+import { site } from "@/lib/data";
 
 const stats = [
   { label: "Years hands-on", value: "1", icon: Sparkles },

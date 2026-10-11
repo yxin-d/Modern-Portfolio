@@ -8,11 +8,6 @@ const eslintConfig = defineConfig([
   // Override default ignores of eslint-config-next.
   globalIgnores([
     // Default ignores of eslint-config-next:
-    "components/BlurText.jsx",
-    "components/CountUp.jsx",
-    "components/DecryptedText.jsx",
-    "components/Magnet.jsx",
-    "components/SpotlightCard.jsx",
     ".next/**",
     "out/**",
     "build/**",

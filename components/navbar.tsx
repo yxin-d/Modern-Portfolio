@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X, TerminalSquare } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { navLinks, site } from "@/lib/data-old";
+import { navLinks, site } from "@/lib/data";
 import { ThemeToggle } from "./theme-toggle";
 import { buttonVariants } from "./ui/button";
 import { cn } from "@/lib/utils";

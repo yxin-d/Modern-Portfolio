@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { TerminalSquare } from "lucide-react";
-import { site, socials, navLinks } from "@/lib/data-old";
+import { site, socials, navLinks } from "@/lib/data";
 
 export function Footer() {
   const year = new Date().getFullYear();
