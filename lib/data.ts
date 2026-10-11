@@ -19,7 +19,7 @@ export const site = {
     "Most of my hands-on experience comes from my internship and current role, where I developed office productivity tools, migrated email systems, and deployed WordPress sites. I enjoy solving problems that span both code and infrastructure, and I'm comfortable translating technical fixes into plain-language updates for non-technical stakeholders.",
     "I'm looking for a role that combines development and IT support — where my breadth of skills is an asset, not a compromise."
   ],
-  resumeUrl: "public\\resume.docx",
+  resumeUrl: "/resume.docx",
   email: "drzen.work@gmail.com",
 };
 

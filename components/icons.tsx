@@ -15,11 +15,3 @@ export function LinkedinIcon(props: SVGProps<SVGSVGElement>) {
     </svg>
   );
 }
-
-export function XIcon(props: SVGProps<SVGSVGElement>) {
-  return (
-    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden {...props}>
-      <path d="M13.6 10.62 20.9 2h-1.73l-6.34 7.48L7.77 2H2l7.66 11.02L2 22h1.73l6.7-7.9 5.35 7.9H21.5l-7.9-11.38Zm-2.37 2.8-.78-1.1L4.3 3.3h2.66l4.99 7.13.78 1.11 6.5 9.29h-2.66l-5.28-7.4Z" />
-    </svg>
-  );
-}

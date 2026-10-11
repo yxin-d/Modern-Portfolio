@@ -22,7 +22,7 @@ export function FloatingNav() {
   return (
     <nav
       aria-label="Primary"
-      className="glass pointer-events-auto fixed inset-x-3 bottom-3 z-50 flex items-center justify-around rounded-2xl p-1.5 shadow-lg md:static md:inset-auto md:justify-start md:gap-0.5 md:rounded-full md:p-1"
+      className="pointer-events-auto fixed inset-x-3 border bg-surface/95 backdrop-blur-xl bottom-3 z-50 flex items-center justify-around rounded-2xl p-1.5 shadow-lg md:static md:inset-auto md:justify-start md:gap-0.5 md:rounded-full md:p-1"
     >
       {ITEMS.map(({ href, label, Icon }) => {
         const active = isActive(href);

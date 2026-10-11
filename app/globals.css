@@ -2,6 +2,8 @@
 
 /* Enable class-based dark mode (default = light, toggled via next-themes) */
 @custom-variant dark (&:where(.dark, .dark *));
+@custom-variant short (@media (max-height: 820px));
+@custom-variant tiny (@media (max-height: 700px));
 
 @theme inline {
   --font-display: 'Sora Variable', 'Sora', ui-sans-serif, system-ui, sans-serif;

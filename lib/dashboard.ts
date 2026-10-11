@@ -10,11 +10,6 @@ export const owner = {
   tagline: site.tagline,
   location: "Pangasinan, Philippines",
   availability: "Open to full-time roles",
-  targetRoles: [
-    "Associate Web Developer",
-    "Junior Software Developer",
-    "Laravel / Angular / Next.js Programmer",
-  ],
   email: site.email,
   resumeUrl: "/resume.docx",
 };
