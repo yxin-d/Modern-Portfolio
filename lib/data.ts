@@ -1,11 +1,4 @@
-import {
-  Mail,
-  Code2,
-  Server,
-  Cloud,
-  Wrench,
-  type LucideIcon,
-} from "lucide-react";
+import { Mail } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/icons";
 
 export const site = {
@@ -14,12 +7,6 @@ export const site = {
   location: "Sison, Pangasinan, Philippines",
   tagline:
     "I build and maintain the systems businesses run on — from the interfaces people click through to the DNS records quietly keeping their mail alive.",
-  about: [
-    "I'm an IT graduate with a strong foundation in full-stack development and IT support. I've managed live client environments end-to-end, from building full-stack applications with Next.js and Laravel to configuring DNS, email migrations, and Google Workspace administration.",
-    "Most of my hands-on experience comes from my internship and current role, where I developed office productivity tools, migrated email systems, and deployed WordPress sites. I enjoy solving problems that span both code and infrastructure, and I'm comfortable translating technical fixes into plain-language updates for non-technical stakeholders.",
-    "I'm looking for a role that combines development and IT support — where my breadth of skills is an asset, not a compromise."
-  ],
-  resumeUrl: "/resume.docx",
   email: "drzen.work@gmail.com",
 };
 
@@ -33,29 +20,24 @@ export const navLinks = [
 
 export type TechCategory = {
   title: string;
-  icon: LucideIcon;
   items: string[];
 };
 
 export const techStack: TechCategory[] = [
   {
     title: "Languages",
-    icon: Code2,
     items: ["TypeScript", "JavaScript", "PHP", "Java", "Python", "HTML5", "CSS3"],
   },
   {
     title: "Frontend",
-    icon: Server,
     items: ["Next.js", "Angular", "React Native", "Tailwind CSS"],
   },
   {
     title: "Backend & Data",
-    icon: Wrench,
     items: ["Laravel", "Node.js", "REST APIs", "MySQL", "PostgreSQL", "MongoDB", "Supabase"],
   },
   {
     title: "IT & Infrastructure",
-    icon: Cloud,
     items: [
       "Google Workspace Admin",
       "Cloudflare DNS",

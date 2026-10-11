@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Briefcase, Cpu, FolderKanban, LayoutDashboard, Mail, PanelsTopLeft } from "lucide-react";
+import { Briefcase, Cpu, FolderKanban, LayoutDashboard, Mail } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const ITEMS = [
@@ -11,7 +11,6 @@ const ITEMS = [
   { href: "/skills", label: "Skills", Icon: Cpu },
   { href: "/experience", label: "Experience", Icon: Briefcase },
   { href: "/contact", label: "Contact", Icon: Mail },
-  { href: "/classic", label: "Classic", Icon: PanelsTopLeft },
 ];
 
 /** Floating pill on desktop; a sticky bottom tab bar on phones. */
@@ -34,7 +33,6 @@ export function FloatingNav() {
             className={cn(
               "flex flex-1 flex-col items-center gap-0.5 rounded-xl py-1.5 text-[10px] font-medium text-muted-foreground transition-colors hover:bg-primary/15 hover:text-foreground md:h-9 md:flex-none md:flex-row md:gap-1.5 md:rounded-full md:px-3.5 md:py-0 md:text-xs",
               active && "bg-primary/20 text-foreground",
-              label === "Classic" && "hidden sm:flex",
             )}
           >
             <Icon className="h-4 w-4" aria-hidden />
