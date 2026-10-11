@@ -32,7 +32,7 @@ export function ContactTiles() {
               <span className="block truncate text-sm font-medium">{value}</span>
             </span>
             <ArrowUpRight
-              className="size-4 shrink-0 text-muted transition-transform duration-200 group-hover/tile:-translate-y-0.5 group-hover/tile:translate-x-0.5 group-hover/tile:text-brand-ink"
+              className="size-4 shrink-0 text-soft transition-transform duration-200 group-hover/tile:-translate-y-0.5 group-hover/tile:translate-x-0.5 group-hover/tile:text-brand-ink"
               aria-hidden
             />
           </a>
@@ -50,7 +50,7 @@ export function ContactCta() {
         <h3 className="mt-2 text-xl font-semibold leading-snug tracking-tight">
           Hiring for a web or software role? Let&apos;s talk.
         </h3>
-        <p className="mt-2 text-sm leading-relaxed text-muted">
+        <p className="mt-2 text-sm leading-relaxed text-soft">
           {profile.availability} — {profile.targetRoles.join(", ")}.
         </p>
 

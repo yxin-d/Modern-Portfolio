@@ -64,7 +64,7 @@ function SidebarBody({
 
       <nav aria-label="Sections" className="flex flex-1 flex-col gap-1 p-3">
         {!collapsed && (
-          <p className="px-3 pb-1 pt-2 font-mono text-[10px] uppercase tracking-[0.18em] text-muted">
+          <p className="px-3 pb-1 pt-2 font-mono text-[10px] uppercase tracking-[0.18em] text-soft">
             Navigate
           </p>
         )}
@@ -79,7 +79,7 @@ function SidebarBody({
               aria-current={on ? "location" : undefined}
               className={`group relative flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition-colors ${
                 collapsed ? "justify-center" : ""
-              } ${on ? "bg-brand/15 text-ink" : "text-muted hover:bg-surface-2 hover:text-ink"}`}
+              } ${on ? "bg-brand/15 text-ink" : "text-soft hover:bg-surface-2 hover:text-ink"}`}
             >
               {on && (
                 <motion.span
@@ -104,7 +104,7 @@ function SidebarBody({
               <StatusDot />
               {profile.availability}
             </div>
-            <p className="mt-1.5 font-mono text-[11px] text-muted">{profile.location}</p>
+            <p className="mt-1.5 font-mono text-[11px] text-soft">{profile.location}</p>
           </div>
         )}
         {onToggle && (
@@ -112,7 +112,7 @@ function SidebarBody({
             type="button"
             onClick={onToggle}
             aria-label={collapsed ? "Expand sidebar" : "Collapse sidebar"}
-            className={`flex w-full items-center gap-3 rounded-xl px-3 py-2 text-sm text-muted transition-colors hover:bg-surface-2 hover:text-ink ${
+            className={`flex w-full items-center gap-3 rounded-xl px-3 py-2 text-sm text-soft transition-colors hover:bg-surface-2 hover:text-ink ${
               collapsed ? "justify-center" : ""
             }`}
           >
@@ -210,7 +210,7 @@ export function Shell({ children }: { children: ReactNode }) {
                 type="button"
                 onClick={() => setDrawer(false)}
                 aria-label="Close navigation"
-                className="absolute right-3 top-3 grid size-8 place-items-center rounded-lg text-muted hover:bg-surface-2 hover:text-ink"
+                className="absolute right-3 top-3 grid size-8 place-items-center rounded-lg text-soft hover:bg-surface-2 hover:text-ink"
               >
                 <X className="size-4" aria-hidden />
               </button>
@@ -231,12 +231,12 @@ export function Shell({ children }: { children: ReactNode }) {
             type="button"
             onClick={() => setDrawer(true)}
             aria-label="Open navigation"
-            className="grid size-9 place-items-center rounded-lg border border-line bg-surface text-muted hover:text-ink lg:hidden"
+            className="grid size-9 place-items-center rounded-lg border border-line bg-surface text-soft hover:text-ink lg:hidden"
           >
             <Menu className="size-4" aria-hidden />
           </button>
 
-          <p className="min-w-0 truncate font-mono text-xs text-muted">
+          <p className="min-w-0 truncate font-mono text-xs text-soft">
             <span className="text-brand-ink">~/rezin-dotimas</span>
             <span aria-hidden> / </span>
             {activeLabel.toLowerCase()}
@@ -266,7 +266,7 @@ export function Shell({ children }: { children: ReactNode }) {
         </main>
 
         <footer className="border-t border-line px-4 py-5 sm:px-6">
-          <div className="mx-auto flex max-w-[1280px] flex-wrap items-center justify-between gap-2 font-mono text-[11px] text-muted">
+          <div className="mx-auto flex max-w-[1280px] flex-wrap items-center justify-between gap-2 font-mono text-[11px] text-soft">
             <span>© 2026 {profile.name}</span>
             <span>Built with Next.js · Tailwind · React Bits</span>
           </div>

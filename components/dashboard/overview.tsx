@@ -53,10 +53,10 @@ export function ProfileCard() {
                       delay={50}
                       animateBy="words"
                       direction="top"
-                      className="mt-4 max-w-xl text-[15px] leading-relaxed text-muted" animationFrom={undefined} animationTo={undefined} onAnimationComplete={undefined}          />
+                      className="mt-4 max-w-xl text-[15px] leading-relaxed text-soft" animationFrom={undefined} animationTo={undefined} onAnimationComplete={undefined}          />
 
           <div className="mt-5 flex flex-wrap items-center gap-3">
-            <span className="inline-flex items-center gap-1.5 text-sm text-muted">
+            <span className="inline-flex items-center gap-1.5 text-sm text-soft">
               <MapPin className="size-4" aria-hidden />
               {profile.location}
             </span>
@@ -70,7 +70,7 @@ export function ProfileCard() {
                   rel="noopener noreferrer"
                   aria-label={label}
                   title={label}
-                  className="grid size-9 place-items-center rounded-lg border border-line bg-surface-2 text-muted transition-all duration-200 hover:-translate-y-0.5 hover:border-brand hover:text-brand-ink"
+                  className="grid size-9 place-items-center rounded-lg border border-line bg-surface-2 text-soft transition-all duration-200 hover:-translate-y-0.5 hover:border-brand hover:text-brand-ink"
                 >
                   <Icon className="size-4" />
                 </a>
@@ -79,7 +79,7 @@ export function ProfileCard() {
                 href={`mailto:${links.email}`}
                 aria-label="Email"
                 title="Email"
-                className="grid size-9 place-items-center rounded-lg border border-line bg-surface-2 text-muted transition-all duration-200 hover:-translate-y-0.5 hover:border-brand hover:text-brand-ink"
+                className="grid size-9 place-items-center rounded-lg border border-line bg-surface-2 text-soft transition-all duration-200 hover:-translate-y-0.5 hover:border-brand hover:text-brand-ink"
               >
                 <Mail className="size-4" aria-hidden />
               </a>
@@ -175,9 +175,9 @@ export function KpiCards() {
           </div>
           <p className="mt-3 flex items-baseline gap-1 text-4xl font-semibold tabular-nums tracking-tight">
             <CountUp to={value} duration={1.6} delay={i * 0.08} onStart={undefined} onEnd={undefined} />
-            {suffix && <span className="text-lg font-medium text-muted">{suffix}</span>}
+            {suffix && <span className="text-lg font-medium text-soft">{suffix}</span>}
           </p>
-          <p className="mt-1.5 text-xs text-muted">{hint}</p>
+          <p className="mt-1.5 text-xs text-soft">{hint}</p>
         </Card>
       ))}
     </>

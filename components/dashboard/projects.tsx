@@ -29,11 +29,11 @@ export function ProjectCards() {
                 <Chip tone={STATUS_TONE[p.status]}>{p.status}</Chip>
                 {p.placeholder && <SampleTag />}
               </div>
-              <span className="font-mono text-xs text-muted">{String(i + 1).padStart(2, "0")}</span>
+              <span className="font-mono text-xs text-soft">{String(i + 1).padStart(2, "0")}</span>
             </div>
 
             <h3 className="mt-4 text-lg font-semibold tracking-tight">{p.title}</h3>
-            <p className="mt-1.5 text-sm leading-relaxed text-muted">{p.blurb}</p>
+            <p className="mt-1.5 text-sm leading-relaxed text-soft">{p.blurb}</p>
 
             <div className="mt-auto flex flex-wrap items-center justify-between gap-3 pt-5">
               <div className="flex flex-wrap gap-1.5">
@@ -50,7 +50,7 @@ export function ProjectCards() {
                       href={p.repo}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 text-muted transition-colors hover:text-brand-ink"
+                      className="inline-flex items-center gap-1 text-soft transition-colors hover:text-brand-ink"
                     >
                       <GitHubIcon className="size-4" /> Code
                     </a>

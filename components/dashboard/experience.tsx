@@ -16,10 +16,10 @@ export function ExperienceCard() {
               <Chip tone="brand">{e.type}</Chip>
               {e.placeholder && <SampleTag />}
             </div>
-            <p className="mt-0.5 font-mono text-xs text-muted">
+            <p className="mt-0.5 font-mono text-xs text-soft">
               {e.org} · {e.period}
             </p>
-            <ul className="mt-3 space-y-1.5 text-sm text-muted">
+            <ul className="mt-3 space-y-1.5 text-sm text-soft">
               {e.highlights.map((h) => (
                 <li key={h} className="flex gap-2">
                   <span className="mt-2 size-1 shrink-0 rounded-full bg-brand" />

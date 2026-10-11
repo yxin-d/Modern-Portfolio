@@ -10,6 +10,7 @@
   --surface-2: #f6f8fb;
   --ink: #1b1d3a;
   --muted: oklch(0.97 0 0);
+  --soft: #5b6180;
   --line: #e2e6ef;
   --brand: #6ec5d2;
   --brand-ink: #1c7886;
@@ -55,6 +56,7 @@
   --surface-2: #1d2040;
   --ink: #eceefa;
   --muted: oklch(0.269 0 0);
+  --soft: #9ba0c2;
   --line: #2a2d4e;
   --brand: #6ec5d2;
   --brand-ink: #6ec5d2;
@@ -99,12 +101,13 @@
   --color-surface-2: var(--surface-2);
   --color-ink: var(--ink);
   --color-muted: var(--muted);
+  --color-soft: var(--soft);
   --color-line: var(--line);
   --color-brand: var(--brand);
   --color-brand-ink: var(--brand-ink);
   --color-gold: var(--gold);
   --color-gold-ink: var(--gold-ink);
-  --font-sans: var(--font-sans);
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, monospace;
   --animate-blink: blink 1.1s steps(1) infinite;
 

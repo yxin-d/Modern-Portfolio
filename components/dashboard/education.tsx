@@ -10,13 +10,13 @@ export function EducationCard() {
       <h3 className="mt-5 text-lg font-semibold leading-snug tracking-tight">{education.degree}</h3>
       <div className="mt-2 flex flex-wrap items-center gap-2">
         <Chip tone="brand">{education.school}</Chip>
-        <span className="font-mono text-xs text-muted">{education.years}</span>
+        <span className="font-mono text-xs text-soft">{education.years}</span>
       </div>
 
       <div className="mt-5 rounded-xl border border-line bg-surface-2 p-4 transition-colors duration-200 hover:border-brand">
         <Label>Capstone</Label>
         <p className="mt-1.5 font-medium">{education.capstone.title}</p>
-        <p className="mt-0.5 text-sm text-muted">{education.capstone.description}</p>
+        <p className="mt-0.5 text-sm text-soft">{education.capstone.description}</p>
       </div>
     </Card>
   );
@@ -37,7 +37,7 @@ export function CertificationsCard() {
             </span>
             <span className="min-w-0">
               <span className="block text-sm font-medium leading-snug">{c.title}</span>
-              <span className="block font-mono text-xs text-muted">{c.issuer}</span>
+              <span className="block font-mono text-xs text-soft">{c.issuer}</span>
             </span>
           </li>
         ))}

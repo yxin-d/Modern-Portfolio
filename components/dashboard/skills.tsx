@@ -22,7 +22,7 @@ export function SkillCards() {
           <CardHeader
             icon={ICONS[group.icon]}
             title={group.title}
-            right={<span className="font-mono text-xs text-muted">{group.items.length}</span>}
+            right={<span className="font-mono text-xs text-soft">{group.items.length}</span>}
           />
           <ul className="mt-4 flex flex-wrap gap-2">
             {group.items.map((item) => (

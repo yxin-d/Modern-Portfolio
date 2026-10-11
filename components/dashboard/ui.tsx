@@ -3,14 +3,14 @@ import type { LucideIcon } from "lucide-react";
 
 export function Label({ children, className = "" }: { children: ReactNode; className?: string }) {
   return (
-    <p className={`font-mono text-[11px] uppercase tracking-[0.16em] text-muted ${className}`}>
+    <p className={`font-mono text-[11px] uppercase tracking-[0.16em] text-soft ${className}`}>
       {children}
     </p>
   );
 }
 
 const TONES = {
-  default: "border-line bg-surface-2 text-muted",
+  default: "border-line bg-surface-2 text-soft",
   brand: "border-brand/50 bg-brand/15 text-brand-ink",
   gold: "border-gold/60 bg-gold/20 text-gold-ink",
   green:

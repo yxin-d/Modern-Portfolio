@@ -41,7 +41,7 @@ export function TestimonialsCard() {
           icon={MessageSquareQuote}
           title="Client feedback"
           right={
-            <span className="font-mono text-xs text-muted">
+            <span className="font-mono text-xs text-soft">
               {index + 1}/{count}
             </span>
           }
@@ -72,7 +72,7 @@ export function TestimonialsCard() {
                     {t.name}
                     {t.placeholder && <SampleTag />}
                   </span>
-                  <span className="block truncate text-xs text-muted">{t.role}</span>
+                  <span className="block truncate text-xs text-soft">{t.role}</span>
                 </span>
               </figcaption>
             </motion.figure>
@@ -89,7 +89,7 @@ export function TestimonialsCard() {
                 aria-label={`Show testimonial ${i + 1}`}
                 aria-current={i === index}
                 className={`h-1.5 rounded-full transition-all duration-300 ${
-                  i === index ? "w-6 bg-brand" : "w-1.5 bg-line hover:bg-muted"
+                  i === index ? "w-6 bg-brand" : "w-1.5 bg-line hover:bg-soft"
                 }`}
               />
             ))}
@@ -99,7 +99,7 @@ export function TestimonialsCard() {
               type="button"
               onClick={() => go(-1)}
               aria-label="Previous testimonial"
-              className="grid size-8 place-items-center rounded-lg border border-line text-muted transition-colors hover:border-brand hover:text-brand-ink"
+              className="grid size-8 place-items-center rounded-lg border border-line text-soft transition-colors hover:border-brand hover:text-brand-ink"
             >
               <ChevronLeft className="size-4" aria-hidden />
             </button>
@@ -107,7 +107,7 @@ export function TestimonialsCard() {
               type="button"
               onClick={() => go(1)}
               aria-label="Next testimonial"
-              className="grid size-8 place-items-center rounded-lg border border-line text-muted transition-colors hover:border-brand hover:text-brand-ink"
+              className="grid size-8 place-items-center rounded-lg border border-line text-soft transition-colors hover:border-brand hover:text-brand-ink"
             >
               <ChevronRight className="size-4" aria-hidden />
             </button>

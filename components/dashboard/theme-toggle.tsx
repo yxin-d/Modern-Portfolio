@@ -39,7 +39,7 @@ export function ThemeToggle() {
             title={label}
             onClick={() => setTheme(value)}
             className={`grid size-7 place-items-center rounded-full transition-colors ${
-              on ? "bg-brand text-[#1b1d3a]" : "text-muted hover:text-ink"
+              on ? "bg-brand text-[#1b1d3a]" : "text-soft hover:text-ink"
             }`}
           >
             <Icon className="size-3.5" aria-hidden />

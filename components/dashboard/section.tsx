@@ -25,7 +25,7 @@ export function Section({ id, index, title, description, children }: SectionProp
           </h2>
         </div>
         {description && (
-          <p className="hidden max-w-sm text-right text-sm text-muted md:block">{description}</p>
+          <p className="hidden max-w-sm text-right text-sm text-soft md:block">{description}</p>
         )}
       </header>
       {children}
