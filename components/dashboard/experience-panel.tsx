@@ -4,10 +4,10 @@ import { Briefcase } from "lucide-react";
 import { experience } from "@/lib/dashboard";
 import { Panel, PanelHeader, SampleTag, Tag, ViewAll } from "./panel";
 
-export function ExperiencePanel({ className, onOpen }: { className?: string; onOpen: () => void }) {
+export function ExperiencePanel({ className }: { className?: string }) {
   return (
     <Panel className={className} delay={0.15}>
-      <PanelHeader icon={Briefcase} title="Experience" action={<ViewAll onClick={onOpen} />} />
+      <PanelHeader icon={Briefcase} title="Experience" action={<ViewAll href="/experience" />} />
       <ol className="relative min-h-0 flex-1 space-y-4 overflow-hidden border-l pl-4">
         {experience.map((e) => (
           <li key={`${e.role}-${e.org}`} className="relative">

@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import type { PointerEvent, ReactNode } from "react";
 import { motion } from "motion/react";
 import { ArrowUpRight, type LucideIcon } from "lucide-react";
@@ -63,16 +64,15 @@ export function PanelHeader({
   );
 }
 
-export function ViewAll({ onClick, label = "View all" }: { onClick: () => void; label?: string }) {
+export function ViewAll({ href, label = "View all" }: { href: string; label?: string }) {
   return (
-    <button
-      type="button"
-      onClick={onClick}
+    <Link
+      href={href}
       className="inline-flex cursor-pointer items-center gap-1 rounded-full px-2 py-1 text-xs font-medium text-secondary transition-colors hover:bg-primary/15 dark:text-primary"
     >
       {label}
       <ArrowUpRight className="h-3 w-3" aria-hidden />
-    </button>
+    </Link>
   );
 }
 

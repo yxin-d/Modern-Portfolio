@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { ArrowUpRight, ChevronLeft, ChevronRight, FolderKanban } from "lucide-react";
 import { projects } from "@/lib/dashboard";
@@ -15,13 +16,7 @@ const DOT: Record<string, string> = {
 
 const featured = projects.filter((p) => !p.placeholder);
 
-export function ProjectsPanel({
-  className,
-  onOpen,
-}: {
-  className?: string;
-  onOpen: (slug?: string) => void;
-}) {
+export function ProjectsPanel({ className }: { className?: string }) {
   const [i, setI] = useState(0);
   const [paused, setPaused] = useState(false);
   const reduce = useReducedMotion();
@@ -57,22 +52,24 @@ export function ProjectsPanel({
               <button type="button" aria-label="Next project" onClick={() => go(1)} className={arrow}>
                 <ChevronRight className="h-4 w-4" />
               </button>
-              <ViewAll onClick={() => onOpen()} />
+              <ViewAll href="/projects" />
             </div>
           }
         />
         <div className="relative min-h-0 flex-1" aria-live="polite">
           <AnimatePresence mode="wait">
-            <motion.button
+            <motion.div
               key={p.slug}
-              type="button"
-              onClick={() => onOpen(p.slug)}
               initial={{ opacity: 0, x: reduce ? 0 : 20 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: reduce ? 0 : -20 }}
               transition={{ duration: 0.25 }}
-              className="tile flex h-full w-full cursor-pointer flex-col rounded-xl p-4 text-left"
+              className="h-full"
             >
+              <Link
+                href="/projects"
+                className="tile flex h-full w-full cursor-pointer flex-col rounded-xl p-4 text-left"
+              >
               <span className="flex items-center justify-between gap-2 text-[11px] text-muted-foreground">
                 <span className="flex items-center gap-1.5">
                   <span className={cn("h-1.5 w-1.5 rounded-full", DOT[p.category] ?? "bg-muted")} />
@@ -92,7 +89,8 @@ export function ProjectsPanel({
                   <Tag key={t}>{t}</Tag>
                 ))}
               </span>
-            </motion.button>
+              </Link>
+            </motion.div>
           </AnimatePresence>
         </div>
         <div className="mt-2 flex shrink-0 justify-center gap-1.5">
