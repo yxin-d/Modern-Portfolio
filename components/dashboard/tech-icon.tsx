@@ -45,7 +45,7 @@ const ICONS: Record<string, Icon> = {
 };
 
 /** Icon-only tech tile; the name is available as a tooltip and to screen readers. */
-export function TechIcon({ name, core }: { name: string; core?: boolean }) {
+export function TechIcon({ name, core, large }: { name: string; core?: boolean; large?: boolean }) {
   const Icon = ICONS[name];
   return (
     <span
@@ -53,11 +53,12 @@ export function TechIcon({ name, core }: { name: string; core?: boolean }) {
       role="img"
       aria-label={name}
       className={cn(
-        "tile relative flex h-8 w-8 items-center justify-center rounded-lg text-foreground/80 hover:text-foreground",
+        "tile relative flex items-center justify-center text-foreground/80 hover:text-foreground",
+        large ? "h-11 w-full rounded-xl" : "h-8 w-8 rounded-lg",
         !Icon && "font-mono text-[10px]",
       )}
     >
-      {Icon ? <Icon className="h-4 w-4" /> : name.slice(0, 2)}
+      {Icon ? <Icon className={large ? "h-5 w-5" : "h-4 w-4"} /> : name.slice(0, 2)}
       {core && <span className="absolute right-1 top-1 h-1.5 w-1.5 rounded-full bg-accent" />}
     </span>
   );

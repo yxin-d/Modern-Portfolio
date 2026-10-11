@@ -91,8 +91,14 @@ export type Project = {
   tags: string[];
   category: "Full-Stack" | "IT & Infrastructure" | "Frontend";
   gradient: [string, string];
+  /** Deployed site — shows a "View live" button. */
   liveUrl?: string;
+  /** Demo (video, sandbox, prototype) for projects with no public site — "View demo". */
+  demoUrl?: string;
+  /** Source code — "View source". */
   repoUrl?: string;
+  /** Screenshots: put files in /public/projects/<slug>/ and list them like "/projects/<slug>/1.png". */
+  images?: string[];
   year: string;
 };
 
@@ -135,9 +141,9 @@ export const projects: Project[] = [
   },
   {
     slug: "religious-org-information-system",
-    title: "Information System for Religious Organization",
+    title: "NLM: Connect",
     summary:
-      "Built an information system for a private religious organization as a capstone project.",
+      "Web-based communication platform for a private religious organization. Capstone project.",
     description:
       "Developed a comprehensive information system to manage members, events, and communications for a private religious organization. The system included features for scheduling, reporting, and member engagement. Used PHP and MySQL, and was recognized for its practical impact. Also awarded Best in OJT for this and other projects.",
     tags: ["PHP", "MySQL", "Information System", "Web Development"],

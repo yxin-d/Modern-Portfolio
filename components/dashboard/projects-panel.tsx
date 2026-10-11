@@ -67,7 +67,7 @@ export function ProjectsPanel({ className }: { className?: string }) {
               className="h-full"
             >
               <Link
-                href="/projects"
+                href={`/projects/${p.slug}`}
                 className="tile flex h-full w-full cursor-pointer flex-col rounded-xl p-4 text-left"
               >
               <span className="flex items-center justify-between gap-2 text-[11px] text-muted-foreground">

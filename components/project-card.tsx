@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowUpRight, Hexagon } from "lucide-react";
 import type { Project } from "@/lib/data";
@@ -25,7 +26,7 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
       transition={{ duration: 0.5, delay: (index % 3) * 0.08 }}
-      className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-surface transition-colors hover:border-primary"
+      className="group relative flex flex-col overflow-hidden rounded-2xl border border-border bg-surface transition-colors hover:border-primary"
     >
       <div
         className="relative flex h-44 items-center justify-center overflow-hidden"
@@ -46,7 +47,11 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
         <p className="font-mono text-xs uppercase tracking-wider text-secondary dark:text-primary">
           {project.category}
         </p>
-        <h3 className="mt-2 font-display text-lg font-semibold">{project.title}</h3>
+        <h3 className="mt-2 font-display text-lg font-semibold">
+          <Link href={`/projects/${project.slug}`} className="after:absolute after:inset-0 after:content-['']">
+            {project.title}
+          </Link>
+        </h3>
         <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{project.summary}</p>
 
         <div className="mt-4 flex flex-wrap gap-1.5">
@@ -59,7 +64,7 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
           {project.liveUrl && (
             <a
               href={project.liveUrl}
-              className="inline-flex items-center gap-1 text-secondary transition-colors hover:text-primary dark:text-primary"
+              className="relative z-10 inline-flex items-center gap-1 text-secondary transition-colors hover:text-primary dark:text-primary"
             >
               Live site <ArrowUpRight className="h-3.5 w-3.5" />
             </a>
@@ -67,7 +72,7 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
           {project.repoUrl && (
             <a
               href={project.repoUrl}
-              className="inline-flex items-center gap-1 text-muted-foreground transition-colors hover:text-foreground"
+              className="relative z-10 inline-flex items-center gap-1 text-muted-foreground transition-colors hover:text-foreground"
             >
               <GithubIcon className="h-3.5 w-3.5" /> Source
             </a>

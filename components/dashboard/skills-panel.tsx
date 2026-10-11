@@ -11,9 +11,9 @@ export function SkillsPanel({ className }: { className?: string }) {
   return (
     <Panel className={className} delay={0.1}>
       <PanelHeader icon={Cpu} title="Tech stack" action={<ViewAll href="/skills" />} />
-      <div className="flex min-h-0 flex-1 flex-wrap content-start gap-1.5 overflow-hidden">
+      <div className="grid min-h-0 flex-1 grid-cols-[repeat(auto-fill,minmax(2.75rem,1fr))] content-center gap-2 overflow-hidden">
         {ALL.map((name) => (
-          <TechIcon key={name} name={name} core={isCore(name)} />
+          <TechIcon key={name} name={name} core={isCore(name)} large />
         ))}
       </div>
     </Panel>

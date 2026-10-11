@@ -74,36 +74,13 @@ export type DashProject = {
   category: string;
   year: string;
   liveUrl?: string;
+  demoUrl?: string;
   repoUrl?: string;
+  images?: string[];
   placeholder?: boolean;
 };
 
-const real: DashProject[] = baseProjects.map((p) =>
-  p.slug === "religious-org-information-system"
-    ? {
-        slug: p.slug,
-        title: "NLM: Connect",
-        summary:
-          "Web-based communication platform for a private religious organization. Capstone project.",
-        description: p.description,
-        tags: p.tags,
-        category: p.category,
-        year: p.year,
-        liveUrl: p.liveUrl,
-        repoUrl: p.repoUrl,
-      }
-    : {
-        slug: p.slug,
-        title: p.title,
-        summary: p.summary,
-        description: p.description,
-        tags: p.tags,
-        category: p.category,
-        year: p.year,
-        liveUrl: p.liveUrl,
-        repoUrl: p.repoUrl,
-      },
-);
+const real: DashProject[] = baseProjects.map((p) => ({ ...p }));
 
 // The KPI says 6 projects; two slots are samples until you add them.
 const samples: DashProject[] = [5, 6].map((n) => ({
