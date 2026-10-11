@@ -1,15 +1,19 @@
 "use client";
 
-import { FolderKanban } from "lucide-react";
+import { useEffect, useState } from "react";
+import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import { ArrowUpRight, ChevronLeft, ChevronRight, FolderKanban } from "lucide-react";
 import { projects } from "@/lib/dashboard";
 import { cn } from "@/lib/utils";
-import { Panel, PanelHeader, SampleTag, Tag, ViewAll } from "./panel";
+import { Panel, PanelHeader, Tag, ViewAll } from "./panel";
 
 const DOT: Record<string, string> = {
   "Full-Stack": "bg-primary",
   "IT & Infrastructure": "bg-accent",
   Frontend: "bg-lavender",
 };
+
+const featured = projects.filter((p) => !p.placeholder);
 
 export function ProjectsPanel({
   className,
@@ -18,45 +22,93 @@ export function ProjectsPanel({
   className?: string;
   onOpen: (slug?: string) => void;
 }) {
+  const [i, setI] = useState(0);
+  const [paused, setPaused] = useState(false);
+  const reduce = useReducedMotion();
+  const n = featured.length;
+
+  useEffect(() => {
+    if (paused || reduce || n < 2) return;
+    const t = setInterval(() => setI((v) => (v + 1) % n), 7000);
+    return () => clearInterval(t);
+  }, [paused, reduce, n]);
+
+  const p = featured[i];
+  const go = (d: number) => setI((v) => (v + d + n) % n);
+  const arrow = "cursor-pointer rounded-full p-1 text-muted-foreground hover:bg-primary/15 hover:text-foreground";
+
   return (
     <Panel className={className} delay={0.05}>
-      <PanelHeader
-        icon={FolderKanban}
-        title="Projects"
-        action={<ViewAll onClick={() => onOpen()} />}
-      />
-      <div className="grid min-h-0 flex-1 grid-cols-1 gap-2.5 sm:grid-cols-2 xl:grid-cols-3 xl:grid-rows-2">
-        {projects.map((p) => (
-          <button
-            key={p.slug}
-            type="button"
-            disabled={p.placeholder}
-            onClick={() => onOpen(p.slug)}
-            className={cn(
-              "tile flex min-h-0 cursor-pointer flex-col rounded-xl p-3 text-left disabled:cursor-default",
-              p.placeholder && "tile-dashed opacity-70",
-            )}
-          >
-            <span className="flex items-center justify-between gap-2 text-[11px] text-muted-foreground">
-              <span className="flex min-w-0 items-center gap-1.5">
-                <span className={cn("h-1.5 w-1.5 shrink-0 rounded-full", DOT[p.category] ?? "bg-muted")} />
-                <span className="truncate">{p.category}</span>
+      <div
+        className="flex min-h-0 flex-1 flex-col"
+        onMouseEnter={() => setPaused(true)}
+        onMouseLeave={() => setPaused(false)}
+        onFocus={() => setPaused(true)}
+        onBlur={() => setPaused(false)}
+      >
+        <PanelHeader
+          icon={FolderKanban}
+          title="Projects"
+          action={
+            <div className="flex items-center gap-1">
+              <button type="button" aria-label="Previous project" onClick={() => go(-1)} className={arrow}>
+                <ChevronLeft className="h-4 w-4" />
+              </button>
+              <button type="button" aria-label="Next project" onClick={() => go(1)} className={arrow}>
+                <ChevronRight className="h-4 w-4" />
+              </button>
+              <ViewAll onClick={() => onOpen()} />
+            </div>
+          }
+        />
+        <div className="relative min-h-0 flex-1" aria-live="polite">
+          <AnimatePresence mode="wait">
+            <motion.button
+              key={p.slug}
+              type="button"
+              onClick={() => onOpen(p.slug)}
+              initial={{ opacity: 0, x: reduce ? 0 : 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: reduce ? 0 : -20 }}
+              transition={{ duration: 0.25 }}
+              className="tile flex h-full w-full cursor-pointer flex-col rounded-xl p-4 text-left"
+            >
+              <span className="flex items-center justify-between gap-2 text-[11px] text-muted-foreground">
+                <span className="flex items-center gap-1.5">
+                  <span className={cn("h-1.5 w-1.5 rounded-full", DOT[p.category] ?? "bg-muted")} />
+                  {p.category}
+                </span>
+                <span className="font-mono">{p.year}</span>
               </span>
-              {p.placeholder ? <SampleTag /> : <span className="font-mono">{p.year}</span>}
-            </span>
-            <span className="mt-2 line-clamp-2 [@media(max-height:820px)]:line-clamp-1 font-display text-[13px] font-semibold leading-snug">
-              {p.title}
-            </span>
-            {p.tags.length > 0 && (
-              <span className="mt-auto flex flex-wrap gap-1 pt-2 [@media(max-height:820px)]:hidden">
-                {p.tags.slice(0, 2).map((t) => (
+              <span className="mt-2 flex items-start justify-between gap-3">
+                <span className="font-display text-lg font-semibold leading-snug">{p.title}</span>
+                <ArrowUpRight className="mt-1 h-4 w-4 shrink-0 text-muted-foreground" aria-hidden />
+              </span>
+              <span className="mt-1.5 line-clamp-2 text-[13px] leading-relaxed text-muted-foreground">
+                {p.summary}
+              </span>
+              <span className="mt-auto flex flex-wrap gap-1 pt-3 [@media(max-height:820px)]:hidden">
+                {p.tags.slice(0, 5).map((t) => (
                   <Tag key={t}>{t}</Tag>
                 ))}
-                {p.tags.length > 2 && <Tag>+{p.tags.length - 2}</Tag>}
               </span>
-            )}
-          </button>
-        ))}
+            </motion.button>
+          </AnimatePresence>
+        </div>
+        <div className="mt-2 flex shrink-0 justify-center gap-1.5">
+          {featured.map((f, d) => (
+            <button
+              key={f.slug}
+              type="button"
+              aria-label={`Show ${f.title}`}
+              onClick={() => setI(d)}
+              className={cn(
+                "h-1.5 cursor-pointer rounded-full transition-all",
+                d === i ? "w-5 bg-primary" : "w-1.5 bg-muted",
+              )}
+            />
+          ))}
+        </div>
       </div>
     </Panel>
   );

@@ -7,9 +7,8 @@ import { AuroraBackground } from "@/components/aurora-background";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { owner } from "@/lib/dashboard";
 import { cn } from "@/lib/utils";
-import { ContactPanel } from "./contact-panel";
 import { DetailDialog, type Detail } from "./detail-dialog";
-import { EducationPanel } from "./education-panel";
+import { CertificationsPanel, EducationPanel } from "./education-panel";
 import { ExperiencePanel } from "./experience-panel";
 import { StatusDot } from "./panel";
 import { ProfilePanel } from "./profile-panel";
@@ -76,7 +75,7 @@ export function Dashboard() {
           </header>
 
           {/* grid */}
-          <main className="grid min-h-0 flex-1 grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-12 lg:grid-rows-[minmax(0,1.25fr)_minmax(0,1fr)_minmax(0,0.85fr)]">
+          <main className="grid min-h-0 flex-1 grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-12 lg:grid-rows-[minmax(0,1.1fr)_minmax(0,1fr)_minmax(0,0.8fr)]">
             <ProfilePanel className="md:col-span-2 lg:col-span-4 lg:row-span-2" />
             <ProjectsPanel
               className="md:col-span-2 lg:col-span-8"
@@ -84,9 +83,9 @@ export function Dashboard() {
             />
             <SkillsPanel className="lg:col-span-4" onOpen={() => setDetail({ kind: "skills" })} />
             <ExperiencePanel className="lg:col-span-4" onOpen={() => setDetail({ kind: "experience" })} />
-            <EducationPanel className="md:col-span-2 lg:col-span-3" />
-            <TestimonialsPanel className="lg:col-span-4" />
-            <ContactPanel className="lg:col-span-5" />
+            <EducationPanel className="lg:col-span-4" />
+            <CertificationsPanel className="lg:col-span-3" />
+            <TestimonialsPanel className="md:col-span-2 lg:col-span-5" />
           </main>
         </div>
       </div>
