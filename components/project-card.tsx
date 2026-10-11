@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ArrowUpRight, Hexagon } from "lucide-react";
-import type { Project } from "@/lib/data";
+import type { Project } from "@/lib/data-old";
 import { Badge } from "./ui/badge";
 import { GithubIcon } from "./icons";
 

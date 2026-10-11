@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, FileDown } from "lucide-react";
-import { site } from "@/lib/data";
+import { site } from "@/lib/data-old";
 import { AuroraBackground } from "./aurora-background";
 import { TypingText } from "./typing-text";
 import { buttonVariants } from "./ui/button";

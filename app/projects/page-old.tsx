@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { PageHeader } from "@/components/page-header";
 import { ProjectsGrid } from "@/components/projects-grid";
-import { site } from "@/lib/data";
+// import { site } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: `Projects — ${site.name}`,
+  // title: `Projects — ${site.name}`,
   description: "A showcase of full-stack, frontend, and IT infrastructure projects.",
 };
 

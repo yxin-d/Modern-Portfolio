@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { techStack, techMarquee } from "@/lib/data";
+import { techStack, techMarquee } from "@/lib/data-old";
 import { Marquee } from "./marquee";
 
 export function TechStack() {

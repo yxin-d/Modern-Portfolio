@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { motion } from "framer-motion";
-import { projects, projectCategories } from "@/lib/data";
+import { projects, projectCategories } from "@/lib/data-old";
 import { ProjectCard } from "./project-card";
 import { cn } from "@/lib/utils";
 
