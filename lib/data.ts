@@ -111,7 +111,7 @@ export const projects: Project[] = [
   },
   {
     slug: "wordpress-custom-theme",
-    title: "WordPress Custom Theme with PHP‑Locked Structure",
+    title: "Pace Property Group WordPress Website",
     summary:
       "Architected a WordPress site with an editor‑friendly, PHP‑locked theme structure for non‑technical clients.",
     description:
