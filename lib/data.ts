@@ -123,7 +123,7 @@ export const projects: Project[] = [
   },
   {
     slug: "religious-org-information-system",
-    title: "NLM: Connect",
+    title: "NLM: Connect, A web-based communication platform for a private religious organization",
     summary:
       "Web-based communication platform for a private religious organization. Capstone project.",
     description:
