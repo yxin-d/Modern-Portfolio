@@ -37,7 +37,6 @@ const EXTRAS: Record<string, string[]> = {
 export const skillGroups: SkillGroup[] = [
   ...techStack.map((g) => ({
     title: g.title,
-    // core strengths first, then the rest in their original order
     items: [...g.items, ...(EXTRAS[g.title] ?? [])].sort(
       (a, b) => Number(CORE.has(b)) - Number(CORE.has(a)),
     ),
@@ -77,7 +76,6 @@ export type DashProject = {
 
 const real: DashProject[] = baseProjects.map((p) => ({ ...p }));
 
-// The KPI says 6 projects; two slots are samples until you add them.
 const samples: DashProject[] = [5, 6].map((n) => ({
   slug: `sample-${n}`,
   title: "Add your next project",
