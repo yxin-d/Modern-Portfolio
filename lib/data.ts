@@ -113,7 +113,7 @@ export const projects: Project[] = [
     slug: "wordpress-custom-theme",
     title: "Pace Property Group WordPress Website",
     summary:
-      "Architected a WordPress site with an editor‑friendly, PHP‑locked theme structure for non‑technical clients.",
+      "Architected a WordPress site with an editor‑friendly, PHP‑locked theme structure for non‑technical clients. In the property management industry, ensuring ease of use and preventing accidental breakage.",
     description:
       "Built a custom WordPress theme tailored for non‑technical client use, ensuring the theme structure is locked down in PHP to prevent accidental breakage while providing an intuitive editor experience. This involved creating custom post types, flexible content blocks, and a robust admin interface, all while maintaining performance and security.",
     tags: ["WordPress", "PHP", "Custom Theme", "Editor‑Friendly"],
