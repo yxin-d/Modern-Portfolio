@@ -5,7 +5,7 @@ import BlurText from "@/components/react-bits/BlurText";
 import CountUp from "@/components/react-bits/CountUp";
 import { TypingText } from "@/components/typing-text";
 import { buttonVariants } from "@/components/ui/button";
-import { links, owner, stats } from "@/lib/dashboard";
+import { links, site, stats } from "@/lib/data";
 import { cn } from "@/lib/utils";
 import { FacebookIcon, GitHubIcon, LinkedInIcon } from "./brand-icons";
 import { Panel, StatusDot } from "./panel";
@@ -30,11 +30,11 @@ export function ProfilePanel({ className }: { className?: string }) {
       <div>
         <div className="flex items-center justify-between gap-3 [@media(max-height:820px)]:hidden">
           <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary font-display text-base font-bold text-primary-foreground transition-transform duration-300 group-hover:rotate-3">
-            {owner.initials}
+            {site.initials}
           </span>
           <span className="inline-flex items-center gap-2 rounded-full bg-surface/70 px-3 py-1.5 text-xs font-medium">
             <StatusDot />
-            {owner.availability}
+            {site.availability}
           </span>
         </div>
 
@@ -42,14 +42,14 @@ export function ProfilePanel({ className }: { className?: string }) {
           <span className="text-secondary dark:text-primary">~/portfolio</span> $ whoami
         </p>
         <h1 className="mt-2 font-display text-4xl font-bold leading-[1.05] tracking-tight xl:text-[2.6rem]">
-          Hi, I&apos;m <span className="text-gradient">{owner.name}</span>
+          Hi, I&apos;m <span className="text-gradient">{site.name}</span>
         </h1>
         <div className="mt-3 font-mono text-sm">
-          <TypingText text={owner.role} className="text-foreground" />
+          <TypingText text={site.role} className="text-foreground" />
         </div>
 
         <BlurText
-          text={owner.tagline}
+          text={site.tagline}
           delay={40}
           animateBy="words"
           direction="top"
@@ -61,7 +61,7 @@ export function ProfilePanel({ className }: { className?: string }) {
         <div className="flex flex-wrap items-center gap-x-4 gap-y-3">
           <span className="inline-flex items-center gap-1.5 text-sm text-muted-foreground">
             <MapPin className="h-4 w-4" aria-hidden />
-            {owner.location}
+            {site.location}
           </span>
           <div className="flex items-center gap-2">
             {SOCIALS.map(({ label, href, Icon }) => (
@@ -80,7 +80,7 @@ export function ProfilePanel({ className }: { className?: string }) {
         </div>
 
         <a
-          href={owner.resumeUrl}
+          href={site.resumeUrl}
           download
           className={cn(buttonVariants({ variant: "primary", size: "sm" }), "w-full sm:w-auto")}
         >

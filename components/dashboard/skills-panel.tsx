@@ -1,7 +1,7 @@
 "use client";
 
 import { Cpu } from "lucide-react";
-import { isCore, skillGroups } from "@/lib/dashboard";
+import { isCore, skillGroups } from "@/lib/data";
 import { Panel, PanelHeader, ViewAll } from "./panel";
 import { TechIcon } from "./tech-icon";
 

@@ -43,6 +43,7 @@ export default async function ProjectPage({ params }: { params: Promise<Params> 
         <p className="mt-6 font-mono text-xs uppercase tracking-wider text-secondary dark:text-primary">
           {p.category} · {p.year}
         </p>
+        {p.context && <p className="mt-1 text-sm text-muted-foreground">{p.context}</p>}
         <h1 className="mt-3 max-w-3xl font-display text-3xl font-bold tracking-tight sm:text-5xl">
           {p.title}
         </h1>
@@ -66,7 +67,7 @@ export default async function ProjectPage({ params }: { params: Promise<Params> 
           )}
           {!hasLinks && (
             <p className="text-sm text-muted-foreground">
-              Client work — no public link. Ask me for a walkthrough.
+              No public link — ask me for a walkthrough.
             </p>
           )}
         </div>

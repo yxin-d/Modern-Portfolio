@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import { TechIcon } from "@/components/dashboard/tech-icon";
 import { PageHeader } from "@/components/page-header";
 import { Marquee } from "@/components/marquee";
-import { site, techMarquee } from "@/lib/data";
-import { isCore, skillGroups } from "@/lib/dashboard";
+import { isCore, site, skillGroups, techMarquee } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: `Skills — ${site.name}`,

@@ -1,7 +1,7 @@
 import { FloatingNav } from "@/components/dashboard/floating-nav";
 import { StatusDot } from "@/components/dashboard/panel";
 import { ThemeToggle } from "@/components/theme-toggle";
-import { owner } from "@/lib/dashboard";
+import { site } from "@/lib/data";
 
 /** Shared across every page: floating nav, availability and theme toggle. */
 export function SiteHeader() {
@@ -11,7 +11,7 @@ export function SiteHeader() {
       <div className="pointer-events-auto flex items-center gap-3 md:absolute md:right-1">
         <span className="glass hidden items-center gap-2 rounded-full px-3 py-2 text-xs font-medium xl:inline-flex">
           <StatusDot />
-          {owner.availability}
+          {site.availability}
         </span>
         <ThemeToggle />
       </div>

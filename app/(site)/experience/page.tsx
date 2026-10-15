@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { PageHeader } from "@/components/page-header";
-import { SampleTag, Tag } from "@/components/dashboard/panel";
-import { experience } from "@/lib/dashboard";
+import { Tag } from "@/components/dashboard/panel";
+import { experience } from "@/lib/data";
 import { site } from "@/lib/data";
 
 export const metadata: Metadata = {
@@ -30,10 +30,9 @@ export default function ExperiencePage() {
                 <div className="flex flex-wrap items-center gap-2">
                   <h2 className="font-display text-xl font-semibold">{e.org}</h2>
                   <Tag>{e.type}</Tag>
-                  {e.placeholder && <SampleTag />}
                 </div>
                 <p className="mt-1 font-mono text-xs text-muted-foreground">
-                  {e.role} · {e.period}
+                  {e.role} · {e.location} · {e.period}
                 </p>
                 <ul className="mt-4 list-disc space-y-1.5 pl-4 text-sm text-muted-foreground">
                   {e.highlights.map((h) => (
