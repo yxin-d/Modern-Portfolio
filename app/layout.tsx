@@ -4,11 +4,11 @@ import "@fontsource-variable/inter";
 import "@fontsource-variable/jetbrains-mono";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
-import { owner } from "@/lib/dashboard";
+import { site } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: `${owner.name} — ${owner.role}`,
-  description: owner.tagline,
+  title: `${site.name} — ${site.role}`,
+  description: site.tagline,
 };
 
 export default function RootLayout({

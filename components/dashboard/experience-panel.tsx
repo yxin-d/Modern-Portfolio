@@ -1,8 +1,8 @@
 "use client";
 
 import { Briefcase } from "lucide-react";
-import { experience } from "@/lib/dashboard";
-import { Panel, PanelHeader, SampleTag, Tag, ViewAll } from "./panel";
+import { experience } from "@/lib/data";
+import { Panel, PanelHeader, Tag, ViewAll } from "./panel";
 
 export function ExperiencePanel({ className }: { className?: string }) {
   return (
@@ -16,7 +16,6 @@ export function ExperiencePanel({ className }: { className?: string }) {
             <div className="mt-1.5 flex flex-wrap items-center gap-1.5">
               <Tag>{e.type}</Tag>
               <span className="font-mono text-[11px] text-muted-foreground">{e.period}</span>
-              {e.placeholder && <SampleTag />}
             </div>
           </li>
         ))}

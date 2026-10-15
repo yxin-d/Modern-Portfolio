@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { ArrowUpRight, ChevronLeft, ChevronRight, FolderKanban } from "lucide-react";
-import { projects } from "@/lib/dashboard";
+import { projects } from "@/lib/data";
 import { cn } from "@/lib/utils";
 import { Panel, PanelHeader, Tag, ViewAll } from "./panel";
 
@@ -14,7 +14,7 @@ const DOT: Record<string, string> = {
   Frontend: "bg-lavender",
 };
 
-const featured = projects.filter((p) => !p.placeholder);
+const featured = projects;
 
 export function ProjectsPanel({ className }: { className?: string }) {
   const [i, setI] = useState(0);

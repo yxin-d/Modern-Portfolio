@@ -1,7 +1,7 @@
 "use client";
 
 import { Award, GraduationCap } from "lucide-react";
-import { certifications, education } from "@/lib/dashboard";
+import { certifications, education } from "@/lib/data";
 import { Panel, PanelHeader, Tag } from "./panel";
 
 export function EducationPanel({ className }: { className?: string }) {

@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
-import { testimonials } from "@/lib/dashboard";
+import { testimonials } from "@/lib/data";
 import { cn } from "@/lib/utils";
 import { Panel, PanelHeader, SampleTag } from "./panel";
 

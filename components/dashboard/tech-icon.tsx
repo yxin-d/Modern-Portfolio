@@ -1,47 +1,42 @@
 "use client";
 
 import type { ComponentType } from "react";
-import { Network, Puzzle, ShieldCheck, Sparkles } from "lucide-react";
-import { FaCss3Alt, FaJava, FaMicrosoft } from "react-icons/fa6";
+import { Database, Sparkles } from "lucide-react";
+import { FaCss3Alt, FaMicrosoft } from "react-icons/fa6";
 import {
-  SiAngular, SiCloudflare, SiCpanel, SiGit, SiGithub, SiGoogle, SiHtml5, SiJavascript,
-  SiLaravel, SiMongodb, SiMysql, SiNextdotjs, SiNodedotjs, SiPhp, SiPostgresql, SiPostman,
-  SiPython, SiReact, SiSupabase, SiTailwindcss, SiTypescript, SiWordpress,
+  SiAngular, SiBootstrap, SiCloudflare, SiCpanel, SiGit, SiGoogle, SiHtml5, SiJavascript,
+  SiLaravel, SiMongodb, SiMysql, SiNextdotjs, SiPhp, SiPostgresql, SiPython, SiReact,
+  SiSupabase, SiTailwindcss, SiTypescript, SiWordpress,
 } from "react-icons/si";
 import { cn } from "@/lib/utils";
 
 type Icon = ComponentType<{ className?: string }>;
 
 const ICONS: Record<string, Icon> = {
+  PHP: SiPhp,
   TypeScript: SiTypescript,
   JavaScript: SiJavascript,
-  PHP: SiPhp,
-  Java: FaJava,
+  HTML: SiHtml5,
+  CSS: FaCss3Alt,
+  SQL: Database,
   Python: SiPython,
-  HTML5: SiHtml5,
-  CSS3: FaCss3Alt,
-  "Next.js": SiNextdotjs,
-  Angular: SiAngular,
-  "React Native": SiReact,
-  "Tailwind CSS": SiTailwindcss,
-  "React Bits": Sparkles,
   Laravel: SiLaravel,
-  "Node.js": SiNodedotjs,
-  "REST APIs": Network,
+  "Next.js": SiNextdotjs,
+  React: SiReact,
+  Angular: SiAngular,
+  "Tailwind CSS": SiTailwindcss,
+  Bootstrap: SiBootstrap,
+  "React Bits": Sparkles,
   MySQL: SiMysql,
   PostgreSQL: SiPostgresql,
   MongoDB: SiMongodb,
   Supabase: SiSupabase,
-  "Google Workspace Admin": SiGoogle,
-  "Cloudflare DNS": SiCloudflare,
+  Cloudflare: SiCloudflare,
   cPanel: SiCpanel,
-  "WordPress CMS": SiWordpress,
-  "SPF / DKIM / DMARC": ShieldCheck,
+  "Google Workspace": SiGoogle,
   "Microsoft 365": FaMicrosoft,
-  ACF: Puzzle,
+  WordPress: SiWordpress,
   Git: SiGit,
-  GitHub: SiGithub,
-  Postman: SiPostman,
 };
 
 /** Icon-only tech tile; the name is available as a tooltip and to screen readers. */
