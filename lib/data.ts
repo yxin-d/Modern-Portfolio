@@ -115,10 +115,10 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    slug: "real-estate-website",
-    title: "Real Estate Website (WordPress)",
+    slug: "pace-property-group-website",
+    title: "Pace Property Group WordPress Website",
     summary:
-      "Dynamic WordPress property-listings site for a Gold Coast real estate agency, editable by non-technical staff.",
+      "Dynamic WordPress property-listings site for a Gold Coast real estate agency, with an editor-friendly, PHP-locked theme so non-technical staff can update it without breaking anything.",
     description:
       "Developed a dynamic WordPress property listings site for a Gold Coast real estate agency, creating editable property and careers interfaces so non-technical staff can publish updates without code. Implemented responsive design and SEO best practices to improve discoverability and user experience.",
     tags: ["WordPress", "PHP", "ACF", "Custom Theme", "SEO", "Responsive"],
