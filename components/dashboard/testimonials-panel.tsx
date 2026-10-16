@@ -5,7 +5,7 @@ import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 import { testimonials } from "@/lib/data";
 import { cn } from "@/lib/utils";
-import { Panel, PanelHeader, SampleTag } from "./panel";
+import { Panel, PanelHeader, SampleTag, ViewAll } from "./panel";
 
 export function TestimonialsPanel({ className }: { className?: string }) {
   const [i, setI] = useState(0);
@@ -52,6 +52,7 @@ export function TestimonialsPanel({ className }: { className?: string }) {
               >
                 <ChevronRight className="h-4 w-4" />
               </button>
+              <ViewAll href="/testimonials" />
             </div>
           }
         />

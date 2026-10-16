@@ -35,6 +35,7 @@ export const navLinks = [
   { href: "/projects", label: "Projects" },
   { href: "/skills", label: "Skills" },
   { href: "/experience", label: "Experience" },
+  { href: "/testimonials", label: "Testimonials" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -273,6 +274,13 @@ export type Testimonial = {
 };
 
 // SAMPLE entries — replace with real client feedback (or a Trustpilot feed).
+/**
+ * Testimonial.to Wall of Love embed `src` (Embed widgets → Wall of Love).
+ * Leave empty to show the hard-coded cards on /testimonials instead.
+ * The dashboard panel always uses the hard-coded `testimonials` below.
+ */
+export const testimonialsEmbedUrl = "";
+
 export const testimonials: Testimonial[] = [
   {
     quote: "Replace this with real feedback from a client. Short, specific quotes work best.",
