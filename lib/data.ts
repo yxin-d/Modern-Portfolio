@@ -247,7 +247,6 @@ export const education = {
   school: "Northern Luzon Adventist College",
   years: "2022 — 2026",
   capstone: "NLM: Connect",
-  award: "Best in OJT",
 };
 
 export const certifications = [
@@ -273,31 +272,25 @@ export type Testimonial = {
   placeholder?: boolean;
 };
 
-// SAMPLE entries — replace with real client feedback (or a Trustpilot feed).
-/**
- * Testimonial.to Wall of Love embed `src` (Embed widgets → Wall of Love).
- * Leave empty to show the hard-coded cards on /testimonials instead.
- * The dashboard panel always uses the hard-coded `testimonials` below.
- */
 export const testimonialsEmbedUrl = "";
 
 export const testimonials: Testimonial[] = [
   {
-    quote: "Replace this with real feedback from a client. Short, specific quotes work best.",
-    name: "Client name",
-    role: "Role, Company",
+    quote: "Rezin has worked with me for six months, starting 21 April 2026, as a fresh graduate with no professional experience.In that time he took on the Pace Property Group website, handling the WordPress site and the technical side behind it, and he has been quick and reliable on updates, including the Unit 119 price change. He works out how to do things himself, explains what he has done clearly, and deals with technical problems without needing hand-holding. I'm happy to keep working with him.",
+    name: "Adam Stewart",
+    role: "Director, Pace Property Group / DCG Advisory",
     placeholder: true,
   },
   {
-    quote: "Add a second testimonial here. The slideshow shows one at a time.",
-    name: "Client name",
-    role: "Role, Company",
+    quote: "An excellent intern who approaches every task with thoroughness and accuracy. Rezin completes assignments well within deadlines and shows great resourcefulness under minimal supervision. Combined with their perfect punctuality, teamwork, and professionalism, he has a very bright career ahead..",
+    name: "Carl Estrada",
+    role: "Associate Software Engineer, Makerspace InnovHub OPC",
     placeholder: true,
   },
-  {
-    quote: "A third one rounds out the rotation — mention results or reliability.",
-    name: "Client name",
-    role: "Role, Company",
-    placeholder: true,
-  },
+  // {
+  //   quote: "A third one rounds out the rotation — mention results or reliability.",
+  //   name: "Client name",
+  //   role: "Role, Company",
+  //   placeholder: true,
+  // },
 ];
