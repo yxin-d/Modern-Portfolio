@@ -83,10 +83,34 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    slug: "scorebunt",
+    title: "ScoreBunt — Live Softball Scoring App",
+    summary:
+      "Live scoring and lineup tracker for intramural softball, replacing the pen-and-paper scoresheet. Built solo and deployed on Vercel.",
+    description:
+      "Built and deployed a live softball scoring web app for alumni intramural games. The batting order is derived from the nine field positions, so there is no separate lineup to maintain, and mid-game substitutions support re-entry the way casual intramural rules allow. An autoscore baserunner tracker advances every runner when a batter reaches base, with a confirmation step and undo on any scored run. Rosters, lineups, and match history persist on the device, so a full game can be scored from a single phone with no backend or sign-in.",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Zustand", "Vercel"],
+    category: "Frontend",
+    gradient: ["turquoise", "lime"],
+    year: "2026",
+  },
+  {
+    slug: "questflow-resource-management",
+    title: "QuestFlow — Gamified Resource Management Platform",
+    summary:
+      "Pitched, designed, and led the build of a platform that matches idle interns to unassigned work through skill matching and real-time availability.",
+    description:
+      "Authored and pitched a digital workplace solution during an internship and, after approval, led the team implementing it as Full-Stack Developer. The platform pairs skill-based task matching with real-time availability tracking so available talent and unassigned work find each other instead of getting lost in chat threads. Delivered three role-scoped surfaces (admin, supervisor, worker) with role-based permissions, covering quests, guilds, leaderboards, a help desk, learning modules, and file uploads. A live availability board runs over a custom Node WebSocket server, pushing status changes to supervisor dashboards without a refresh.",
+    tags: ["Next.js", "TypeScript", "MongoDB", "NextAuth", "WebSockets", "Tailwind CSS"],
+    category: "Full-Stack",
+    gradient: ["gold", "coral"],
+    year: "2026",
+  },
+  {
     slug: "google-workspace-migration",
     title: "Google Workspace Migration & Infrastructure Hardening",
     summary:
-      "End-to-end migration from Microsoft to Google Workspace, including DNS configuration, email aliases, and security hardening.",
+      "End-to-end migration from Microsoft 365 to Google Workspace, including DNS configuration, email aliases, and security hardening.",
     description:
       "Executed a complete data migration for an organization, transferring emails, documents, and media to Google Workspace. Provisioned email aliases for branch offices, configured Cloudflare DNS records for email routing and DKIM authentication, and deployed custom WordPress sites via cPanel. Troubleshot complex post-migration email issues to ensure business continuity.",
     tags: ["Google Workspace", "Cloudflare DNS", "cPanel", "WordPress", "DKIM", "Email Migration"],
@@ -95,40 +119,40 @@ export const projects: Project[] = [
     year: "2026",
   },
   {
-    slug: "productivity-tools-suite",
-    title: "Office Productivity Tools Suite",
-    summary:
-      "Developed two full-stack office productivity tools using Next.js and Laravel during internship.",
-    description:
-      "Built two applications: a Digital Queue Management system and an Intern Management system, managing both frontend and backend. Integrated MailerSend API for notifications, AI functionalities, and real‑time updates via WebSockets/Socket.io and Redis. Managed data across Supabase, MongoDB, and GridFS. Used Tailwind CSS, ShadCN UI, and React Bits for responsive design. Collaborated via GitHub and Discord, and pre‑hosted on Vercel.",
-    tags: ["Next.js", "Laravel", "WebSockets", "Redis", "Supabase", "MongoDB", "Tailwind CSS"],
-    category: "Full-Stack",
-    gradient: ["gold", "coral"],
-    year: "2026",
-  },
-  {
     slug: "wordpress-custom-theme",
     title: "Pace Property Group WordPress Website",
     summary:
-      "Architected a WordPress site with an editor‑friendly, PHP‑locked theme structure for non‑technical clients. In the property management industry, ensuring ease of use and preventing accidental breakage.",
+      "A WordPress site for a Gold Coast real estate agency, with an editor-friendly theme structure that lets non-technical staff publish without touching code.",
     description:
-      "Built a custom WordPress theme tailored for non‑technical client use, ensuring the theme structure is locked down in PHP to prevent accidental breakage while providing an intuitive editor experience. This involved creating custom post types, flexible content blocks, and a robust admin interface, all while maintaining performance and security.",
-    tags: ["WordPress", "PHP", "Custom Theme", "Editor‑Friendly"],
+      "Built a custom WordPress theme for a property management and sales business, structured so the layout is locked down in PHP while content stays fully editable. Created custom post types for property listings, flexible ACF-backed content blocks, and a structured admin interface covering listings and careers, so staff can publish updates without risking the template. Implemented responsive design and SEO best practices to improve discoverability.",
+    tags: ["WordPress", "PHP", "ACF", "Custom Theme", "SEO"],
     category: "Frontend",
     gradient: ["lavender", "turquoise"],
-    year: "2025",
+    year: "2026",
   },
   {
-    slug: "religious-org-information-system",
-    title: "NLM: Connect, A web-based communication platform for a private religious organization",
+    slug: "queue-management-system",
+    title: "Digital Queue Management System",
     summary:
-      "Web-based communication platform for a private religious organization. Capstone project.",
+      "Contributed as Database Administrator and QA Tester on an office productivity tool built during an internship.",
     description:
-      "Developed a comprehensive information system to manage members, events, and communications for a private religious organization. The system included features for scheduling, reporting, and member engagement. Used PHP and MySQL, and was recognized for its practical impact. Also awarded Best in OJT for this and other projects.",
-    tags: ["PHP", "MySQL", "Information System", "Web Development"],
+      "Worked on an internal office productivity application built with Laravel Inertia, React, and Supabase. Owned the database layer — schema design, queries, and data integrity — and ran quality assurance testing across the application, reporting and verifying fixes ahead of handover. Integrated MailerSend for transactional notifications and collaborated with the team through GitHub, with builds pre-hosted on Vercel.",
+    tags: ["Laravel", "Inertia", "React", "Supabase", "MailerSend", "QA Testing"],
+    category: "Full-Stack",
+    gradient: ["coral", "gold"],
+    year: "2026",
+  },
+  {
+    slug: "nlm-connect",
+    title: "NLM Connect — Communication Portal (Capstone)",
+    summary:
+      "A web portal centralizing announcements, messaging, and events for a regional church organization spanning six provinces.",
+    description:
+      "Developed a web-based communication portal as a five-person capstone team, replacing fragmented announcements scattered across social media and group chats. Built role-based access for four user types — admin, worker, communication representative, and public — with a centralized announcement feed organized by department and date, structured role-based messaging, a calendar-based event board, and a public inquiry form routed to the right office. Delivered using an iterative waterfall approach, from stakeholder interviews through unit, integration, and system testing.",
+    tags: ["Laravel", "Livewire", "Blade", "Tailwind CSS", "MySQL", "MVC"],
     category: "Full-Stack",
     gradient: ["lime", "gold"],
-    year: "2025",
+    year: "2026",
   },
 ];
 
