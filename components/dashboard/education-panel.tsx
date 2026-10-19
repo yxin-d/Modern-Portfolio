@@ -15,7 +15,7 @@ export function EducationPanel({ className }: { className?: string }) {
         </p>
         <div className="mt-2 flex flex-wrap gap-1">
           <Tag>Capstone: {education.capstone}</Tag>
-          <Tag className="bg-accent/25 text-foreground">{education.award}</Tag>
+          {/* <Tag className="bg-accent/25 text-foreground">{education.award}</Tag> */}
         </div>
       </div>
     </Panel>
