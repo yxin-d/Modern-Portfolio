@@ -89,6 +89,9 @@ export const techMarquee = [
   "WordPress",
   "cPanel",
   "Git",
+  "C#",
+  "Python",
+  "Bootstrap",
 ];
 
 /* ── Projects ─────────────────────────────────────────────────────── */
