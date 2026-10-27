@@ -1,11 +1,12 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowUpRight, Hexagon } from "lucide-react";
-import type { Project } from "@/lib/data";
+import { externalHref, type Project } from "@/lib/data";
 import { Badge } from "./ui/badge";
-import { GithubIcon } from "./icons";
+import { RepoLink } from "./repo-link";
 
 const colorMap: Record<string, string> = {
   turquoise: "var(--color-turquoise)",
@@ -29,16 +30,26 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
       className="group relative flex flex-col overflow-hidden rounded-2xl border border-border bg-surface transition-colors hover:border-primary"
     >
       <div
-        className="relative flex h-44 items-center justify-center overflow-hidden"
+        className="relative flex aspect-[16/10] items-center justify-center overflow-hidden"
         style={{
           background: `linear-gradient(135deg, ${colorMap[from]}, ${colorMap[to]})`,
         }}
       >
-        <Hexagon
-          className="h-16 w-16 text-night/20 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-12"
-          strokeWidth={1.2}
-        />
-        <span className="absolute right-3 top-3 rounded-full bg-night/20 px-2.5 py-1 font-mono text-[11px] text-night/80 backdrop-blur-sm">
+        {project.images?.[0] ? (
+          <Image
+            src={project.images[0]}
+            alt={`${project.title} cover`}
+            fill
+            sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+            className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+          />
+        ) : (
+          <Hexagon
+            className="h-16 w-16 text-night/20 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-12"
+            strokeWidth={1.2}
+          />
+        )}
+        <span className="absolute right-3 top-3 rounded-full bg-night/60 px-2.5 py-1 font-mono text-[11px] text-white backdrop-blur-sm">
           {project.year}
         </span>
       </div>
@@ -63,20 +74,15 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
         <div className="mt-6 flex items-center gap-4 pt-2 text-sm font-medium">
           {project.liveUrl && (
             <a
-              href={project.liveUrl}
+              href={externalHref(project.liveUrl)}
+              target="_blank"
+              rel="noopener noreferrer"
               className="relative z-10 inline-flex items-center gap-1 text-secondary transition-colors hover:text-primary dark:text-primary"
             >
               Live site <ArrowUpRight className="h-3.5 w-3.5" />
             </a>
           )}
-          {project.repoUrl && (
-            <a
-              href={project.repoUrl}
-              className="relative z-10 inline-flex items-center gap-1 text-muted-foreground transition-colors hover:text-foreground"
-            >
-              <GithubIcon className="h-3.5 w-3.5" /> Source
-            </a>
-          )}
+          <RepoLink project={project} variant="inline" />
         </div>
       </div>
     </motion.article>

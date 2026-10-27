@@ -1,12 +1,16 @@
 "use client";
 
 import type { ComponentType } from "react";
-import { Database, Sparkles } from "lucide-react";
-import { FaCss3Alt, FaMicrosoft } from "react-icons/fa6";
 import {
-  SiAngular, SiBootstrap, SiCloudflare, SiCpanel, SiGit, SiGoogle, SiHtml5, SiJavascript,
-  SiLaravel, SiMongodb, SiMysql, SiNextdotjs, SiPhp, SiPostgresql, SiPython, SiReact,
-  SiSupabase, SiTailwindcss, SiTypescript, SiWordpress,
+  Blocks, Database, KeyRound, Layers, LayoutTemplate, Mail, MonitorSmartphone, Plug, Radio,
+  RefreshCcw, Sparkles, Webhook,
+} from "lucide-react";
+import { FaCss3Alt, FaJava, FaMicrosoft } from "react-icons/fa6";
+import {
+  SiAngular, SiBootstrap, SiCloudflare, SiCpanel, SiDotnet, SiGit, SiGithub, SiGithubactions,
+  SiGoogle, SiHtml5, SiInertia, SiJavascript, SiLaravel, SiLivewire, SiMongodb, SiMysql,
+  SiNextdotjs, SiPhp, SiPostgresql, SiPython, SiReact, SiRedis, SiSupabase, SiTailwindcss,
+  SiTypescript, SiVercel, SiWordpress,
 } from "react-icons/si";
 import { cn } from "@/lib/utils";
 
@@ -37,6 +41,24 @@ const ICONS: Record<string, Icon> = {
   "Microsoft 365": FaMicrosoft,
   WordPress: SiWordpress,
   Git: SiGit,
+  Java: FaJava,
+  "C#": SiDotnet,
+  Livewire: SiLivewire,
+  "Inertia.js": SiInertia,
+  Zustand: Layers,
+  Redis: SiRedis,
+  GitHub: SiGithub,
+  Vercel: SiVercel,
+  MailerSend: Mail,
+  ACF: Blocks,
+  "REST APIs": Webhook,
+  MVC: LayoutTemplate,
+  "Responsive Design": MonitorSmartphone,
+  WebSockets: Radio,
+  Agile: RefreshCcw,
+  "OAuth 2.0": KeyRound,
+  "third-party API integration": Plug,
+  "CI/CD": SiGithubactions,
 };
 
 /** Icon-only tech tile; the name is available as a tooltip and to screen readers. */

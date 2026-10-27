@@ -2,11 +2,11 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowRight, ArrowUpRight, Play } from "lucide-react";
-import { GithubIcon } from "@/components/icons";
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
 import { ProjectGallery } from "@/components/project-gallery";
-import { projects, site } from "@/lib/data";
+import { RepoLink } from "@/components/repo-link";
+import { externalHref, projects, repoState, site } from "@/lib/data";
 import { cn } from "@/lib/utils";
 
 type Params = { slug: string };
@@ -27,7 +27,7 @@ export default async function ProjectPage({ params }: { params: Promise<Params> 
   if (i === -1) notFound();
   const p = projects[i];
   const next = projects[(i + 1) % projects.length];
-  const hasLinks = p.liveUrl || p.demoUrl || p.repoUrl;
+  const hasLinks = p.liveUrl || p.demoUrl || repoState(p);
   const ext = { target: "_blank", rel: "noopener noreferrer" } as const;
 
   return (
@@ -51,20 +51,16 @@ export default async function ProjectPage({ params }: { params: Promise<Params> 
 
         <div className="mt-6 flex flex-wrap items-center gap-3">
           {p.liveUrl && (
-            <a href={p.liveUrl} {...ext} className={buttonVariants({ variant: "primary" })}>
+            <a href={externalHref(p.liveUrl)} {...ext} className={buttonVariants({ variant: "primary" })}>
               View live <ArrowUpRight className="h-4 w-4" aria-hidden />
             </a>
           )}
           {p.demoUrl && (
-            <a href={p.demoUrl} {...ext} className={buttonVariants({ variant: p.liveUrl ? "secondary" : "primary" })}>
+            <a href={externalHref(p.demoUrl)} {...ext} className={buttonVariants({ variant: p.liveUrl ? "secondary" : "primary" })}>
               <Play className="h-4 w-4" aria-hidden /> View demo
             </a>
           )}
-          {p.repoUrl && (
-            <a href={p.repoUrl} {...ext} className={buttonVariants({ variant: "outline" })}>
-              <GithubIcon className="h-4 w-4" /> View source
-            </a>
-          )}
+          <RepoLink project={p} />
           {!hasLinks && (
             <p className="text-sm text-muted-foreground">
               No public link — ask me for a walkthrough.
