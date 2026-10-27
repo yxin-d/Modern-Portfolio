@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Briefcase, Cpu, FolderKanban, LayoutDashboard, Mail } from "lucide-react";
+import { Briefcase, Cpu, FolderKanban, LayoutDashboard, Mail, MessageSquareQuote } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const ITEMS = [
@@ -10,6 +10,7 @@ const ITEMS = [
   { href: "/projects", label: "Projects", Icon: FolderKanban },
   { href: "/skills", label: "Skills", Icon: Cpu },
   { href: "/experience", label: "Experience", Icon: Briefcase },
+  { href: "/testimonials", label: "Testimonials", Icon: MessageSquareQuote },
   { href: "/contact", label: "Contact", Icon: Mail },
 ];
 
@@ -31,7 +32,7 @@ export function FloatingNav() {
             href={href}
             aria-current={active ? "page" : undefined}
             className={cn(
-              "flex flex-1 flex-col items-center gap-0.5 rounded-xl py-1.5 text-[10px] font-medium text-muted-foreground transition-colors hover:bg-primary/15 hover:text-foreground md:h-9 md:flex-none md:flex-row md:gap-1.5 md:rounded-full md:px-3.5 md:py-0 md:text-xs",
+              "flex flex-1 flex-col items-center gap-0.5 rounded-xl py-1.5 text-[9.5px] font-medium sm:text-[10px] text-muted-foreground transition-colors hover:bg-primary/15 hover:text-foreground md:h-9 md:flex-none md:flex-row md:gap-1.5 md:rounded-full md:px-3.5 md:py-0 md:text-xs",
               active && "bg-primary/20 text-foreground",
             )}
           >

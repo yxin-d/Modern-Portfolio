@@ -112,12 +112,32 @@ export type Project = {
   liveUrl?: string;
   /** Demo (video, sandbox, prototype) for projects with no public site — "View demo". */
   demoUrl?: string;
-  /** Source code — "View source". */
+  /**
+   * How to present the source code:
+   *  - "public": show a "View repo" button (needs `repoUrl`)
+   *  - "private": show "Private repo — walkthrough on request"
+   *  - "unavailable": show "Repo unavailable"
+   * Leave unset to show nothing. If only `repoUrl` is set it counts as "public".
+   */
+  repoStatus?: "public" | "private" | "unavailable";
+  /** Source code link, used when the repo is public. */
   repoUrl?: string;
   /** Screenshots: put files in /public/projects/<slug>/ and list them like "/projects/<slug>/1.png". */
   images?: string[];
   year: string;
 };
+
+/** Resolves how a project's repo should be shown. */
+export function repoState(p: Pick<Project, "repoStatus" | "repoUrl">) {
+  if (p.repoStatus === "private" || p.repoStatus === "unavailable") return p.repoStatus;
+  if (p.repoStatus === "public" || p.repoUrl) return p.repoUrl ? "public" : null;
+  return null;
+}
+
+/** Adds https:// to links typed without a scheme, so "scorebunt.yxin.dev" stays an absolute URL. */
+export function externalHref(url: string) {
+  return /^([a-z][a-z0-9+.-]*:|\/\/)/i.test(url) ? url : `https://${url}`;
+}
 
 export const projects: Project[] = [
   {
@@ -132,7 +152,8 @@ export const projects: Project[] = [
     gradient: ["turquoise", "lime"],
     context: "Personal project · Alumni intramural softball",
     year: "2026",
-    liveUrl: "scorebunt.yxin.dev",
+    liveUrl: "https://scorebunt.yxin.dev",
+    repoStatus: "public",
     repoUrl: "https://github.com/yxin-dev/scorebunt",
     images: [
       "/projects/scorebunt/cover.png",
@@ -187,13 +208,13 @@ export const projects: Project[] = [
     year: "2026",
     liveUrl: "https://pacepropertygroup.com.au",
     images: [
-      "/projects/pace-property-group/cover.png",
-      "/projects/pace-property-group/1.png",
-      "/projects/pace-property-group/2.png",
-      "/projects/pace-property-group/3.png",
-      "/projects/pace-property-group/4.png",
-      "/projects/pace-property-group/5.png",
-      "/projects/pace-property-group/6.png",
+      "/projects/pace/cover.png",
+      "/projects/pace/1.png",
+      "/projects/pace/2.png",
+      "/projects/pace/3.png",
+      "/projects/pace/4.png",
+      "/projects/pace/5.png",
+      "/projects/pace/6.png",
     ],
   },
   {
@@ -299,7 +320,15 @@ export const education = {
   capstone: "NLM: Connect",
 };
 
-export const certifications = [
+export type Certification = {
+  title: string;
+  issuer: string;
+  year: string;
+  /** Link to the certificate / credential. When set, the entry becomes clickable. */
+  url?: string;
+};
+
+export const certifications: Certification[] = [
   { title: "Base Workshop Participant", issuer: "Base.ph", year: "2026" },
   { title: "Foundational C# with Microsoft", issuer: "freeCodeCamp", year: "2026" },
   { title: "CLICK 2025: IT Education Conference", issuer: "CHED Region 1 | PSITE", year: "2025" },
@@ -307,15 +336,48 @@ export const certifications = [
 
 /* ── KPIs ─────────────────────────────────────────────────────────── */
 
+const MONTHS = ["jan","feb","mar","apr","may","jun","jul","aug","sep","oct","nov","dec"];
+
+/** "April 2026" / "Mar 2026" / "Present" -> absolute month index (year * 12 + month). */
+function monthIndex(label: string, now = new Date()) {
+  const text = label.trim().toLowerCase();
+  if (text === "present" || text === "now" || text === "current") {
+    return now.getFullYear() * 12 + now.getMonth();
+  }
+  const [mon, year] = text.split(/\s+/);
+  const m = MONTHS.indexOf(mon?.slice(0, 3));
+  const y = Number(year);
+  return m < 0 || !Number.isFinite(y) ? null : y * 12 + m;
+}
+
+/** Total months worked, counting overlapping roles only once. */
+function totalExperienceMonths(list: Experience[]) {
+  const spans = list
+    .map((e) => {
+      const [from, to] = e.period.split(/\s*[—–-]\s*/);
+      const a = monthIndex(from ?? "");
+      const b = monthIndex(to ?? "");
+      return a === null || b === null || b < a ? null : ([a, b] as const);
+    })
+    .filter((x): x is readonly [number, number] => x !== null)
+    .sort((x, y) => x[0] - y[0]);
+
+  let total = 0;
+  let cur: [number, number] | null = null;
+  for (const [a, b] of spans) {
+    if (cur && a <= cur[1]) cur[1] = Math.max(cur[1], b);
+    else {
+      if (cur) total += cur[1] - cur[0];
+      cur = [a, b];
+    }
+  }
+  if (cur) total += cur[1] - cur[0];
+  return total;
+}
+
 export const stats = {
   projects: projects.length,
-  experienceMonths: experience.reduce((sum, exp) => {
-    const [start, end] = exp.period.split("—").map((s) => s.trim());
-    const startDate = new Date(start);
-    const endDate = new Date(end);
-    const months = (endDate.getFullYear() - startDate.getFullYear()) * 12 + (endDate.getMonth() - startDate.getMonth());
-    return sum + months;
-  }, 0),
+  experienceMonths: totalExperienceMonths(experience),
   clients: 3,
   technologies: new Set(skillGroups.flatMap((g) => g.items)).size,
 };
