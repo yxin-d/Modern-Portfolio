@@ -1,10 +1,6 @@
 import { Mail } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/icons";
 
-// Single source of truth for everything the portfolio shows.
-// Content is based on the "Rezin Dotimas - Resume" doc. Items flagged
-// `placeholder: true` are samples to replace.
-
 /* ── Profile ──────────────────────────────────────────────────────── */
 
 export const site = {
@@ -15,19 +11,19 @@ export const site = {
     "Full-stack developer building web applications with Laravel and Next.js, backed by hands-on IT support and deployment experience with real clients.",
   location: "Sison, Pangasinan, Philippines",
   availability: "Open to full-time roles",
-  email: "drzen.work@gmail.com",
-  // Put your CV in /public with this exact name.
+  email: "rezin@yxin.dev",
   resumeUrl: "/resume.docx",
 };
 
 export const links = {
-  email: { label: "drzen.work@gmail.com", href: `mailto:${site.email}` },
+  email: { label: "rezin@yxin.dev", href: `mailto:${site.email}` },
   github: { label: "yxin-d", href: "https://github.com/yxin-d" },
   linkedin: {
     label: "rezin-dotimas",
     href: "https://www.linkedin.com/in/rezin-dotimas-48130924b",
   },
   facebook: { label: "rzen.dotimas", href: "https://www.facebook.com/rzen.dotimas" },
+  instagram: { label: "rezin.dotimas", href: "https://www.instagram.com/yxin_d" },
 };
 
 export const navLinks = [
@@ -50,6 +46,8 @@ export const socials: Social[] = [
   { label: "GitHub", href: links.github.href, icon: GithubIcon, handle: links.github.label },
   { label: "LinkedIn", href: links.linkedin.href, icon: LinkedinIcon, handle: "Rezin Dotimas" },
   { label: "Email", href: links.email.href, icon: Mail, handle: links.email.label },
+  { label: "Instagram", href: links.instagram.href, icon: Mail, handle: links.instagram.label },
+  { label: "Facebook", href: links.facebook.href, icon: Mail, handle: links.facebook.label },
 ];
 
 /* ── Skills ───────────────────────────────────────────────────────── */
@@ -57,16 +55,20 @@ export const socials: Social[] = [
 export type SkillGroup = { title: string; items: string[] };
 
 export const skillGroups: SkillGroup[] = [
-  { title: "Languages", items: ["PHP", "TypeScript", "JavaScript", "HTML", "CSS", "SQL", "Python"] },
+  { title: "Languages", items: ["HTML", "CSS", "PHP", "Python", "TypeScript", "JavaScript", "Java", "C#"] },
   {
     title: "Frameworks & Libraries",
-    items: ["Laravel", "Next.js", "React", "Angular", "Tailwind CSS", "Bootstrap", "React Bits"],
+    items: ["Laravel", "Angular", "Next.js", "React", "Tailwind CSS", "Bootstrap", "Livewire", "Inertia.js", "React Bits", "Zustand"],
   },
-  { title: "Databases", items: ["MySQL", "PostgreSQL", "MongoDB", "Supabase"] },
+  { title: "Databases", items: ["MySQL", "MongoDB", "Supabase", "PostgreSQL", "Redis"] },
   {
     title: "Infrastructure & Tools",
-    items: ["Cloudflare", "cPanel", "Google Workspace", "Microsoft 365", "WordPress", "Git"],
+    items: ["Cloudflare", "cPanel", "Google Workspace", "Microsoft 365", "WordPress", "Git", "GitHub", "Vercel", "MailerSend", "ACF"],
   },
+  {
+    title: "Practices & Integrations",
+    items: ["REST APIs", "MVC", "Responsive Design", "WebSockets", "Agile", "OAuth 2.0", "third-party API integration", "CI/CD"],
+  }
 ];
 
 const CORE = new Set(["Laravel", "Next.js"]);
@@ -130,6 +132,20 @@ export const projects: Project[] = [
     gradient: ["turquoise", "lime"],
     context: "Personal project · Alumni intramural softball",
     year: "2026",
+    liveUrl: "scorebunt.yxin.dev",
+    repoUrl: "https://github.com/yxin-dev/scorebunt",
+    images: [
+      "/projects/scorebunt/cover.png",
+      "/projects/scorebunt/playerlist.png",
+      "/projects/scorebunt/playerLineUp.png",
+      "/projects/scorebunt/gameScoreScreen.png",
+      "/projects/scorebunt/outModal.png",
+      "/projects/scorebunt/scorerModal.png",
+      "/projects/scorebunt/autoScorerModal.png",
+      "/projects/scorebunt/conclusion.png",
+      "/projects/scorebunt/gameStats.png",
+      "/projects/scorebunt/postMatchLobby.png"
+    ],
   },
   {
     slug: "questflow-resource-management",
@@ -169,6 +185,39 @@ export const projects: Project[] = [
     gradient: ["lavender", "turquoise"],
     context: "DCG Advisory · Gold Coast, Australia (Remote)",
     year: "2026",
+    liveUrl: "https://pacepropertygroup.com.au",
+    images: [
+      "/projects/pace-property-group/cover.png",
+      "/projects/pace-property-group/1.png",
+      "/projects/pace-property-group/2.png",
+      "/projects/pace-property-group/3.png",
+      "/projects/pace-property-group/4.png",
+      "/projects/pace-property-group/5.png",
+      "/projects/pace-property-group/6.png",
+    ],
+  },
+  {
+    slug: "Outsourcing-Website",
+    title: "Outsourcing & Offshoring Services Website",
+    summary:
+      "A modern, responsive website for a business consulting firm specializing in outsourcing and offshoring solutions.",
+    description:
+      "Developed a comprehensive website for a business consulting firm, focusing on showcasing their outsourcing and offshoring services. Implemented a clean, professional design with intuitive navigation and optimized performance for various devices.",
+    tags: ["WordPress", "PHP", "Responsive Design", "CMS"],
+    category: "Frontend",
+    gradient: ["lavender", "turquoise"],
+    context: "DCG Advisory · Remote",
+    year: "2026",
+    liveUrl: "https://dcgadvisory.com",
+    images: [
+      "/projects/dcg/cover.png",
+      "/projects/dcg/1.png",
+      "/projects/dcg/2.png",
+      "/projects/dcg/3.png",
+      "/projects/dcg/4.png",
+      "/projects/dcg/5.png",
+      "/projects/dcg/6.png",
+    ],
   },
   {
     slug: "queue-management-system",
@@ -218,16 +267,14 @@ export const experience: Experience[] = [
     org: "DCG Advisory",
     location: "Australia (Remote)",
     type: "Contract",
-    period: "May 2026 — Present",
+    period: "April 2026 — Present",
     highlights: [
-      "Led the migration from Microsoft 365 to Google Workspace: planned and executed the email migration, rerouted mail flows and updated DNS via Cloudflare to keep downtime minimal.",
-      "Created alternate email aliases and forwards to preserve communication continuity.",
-      "Built and maintain a WordPress site for the client's property and real estate management and sales from scratch, using custom themes and native plugins.",
-      "Configured the company's other website to reflect a shift from financial advisory to offshoring and outsourcing services.",
-      "Designed the brand logo and standardized official document templates.",
-      "Provide ongoing technical support: triage, troubleshoot and resolve staff IT issues.",
+      "Migrated the client’s organization from Microsoft 365 to Google Workspace, rerouting mail flows and updating DNS records to keep downtime minimal.",
+      "Administered domain and email accounts, including aliases and forwarding, to preserve communication continuity.",
+      "Built and deployed the client’s website to production, and maintained the hosting environment to keep it stable and up to date.",
+      "Provided remote technical support with minimal supervision, triaging and resolving staff IT issues across development, hosting, and support tasks."
     ],
-    tech: ["Google Workspace", "Microsoft 365", "Cloudflare", "WordPress"],
+    tech: ["Google Workspace", "Microsoft 365", "Cloudflare", "WordPress", "cPanel", "DNS", "Email Migration", "DKIM", "PHP", "ACF"],
   },
   {
     role: "Web3 Developer Intern",
@@ -236,10 +283,10 @@ export const experience: Experience[] = [
     type: "Internship",
     period: "Mar 2026 — May 2026",
     highlights: [
-      "Optimized web pages with SEO best practices and built responsive, schema-enhanced comparison pages for an auto-dealer website.",
-      "Contributed as Database Administrator and QA Tester on an office productivity tool built with Laravel Inertia + React and Supabase.",
-      "Authored and pitched a digital workplace solution and, after approval, led the team to build it as Full-Stack Developer using Next.js and MongoDB.",
-      "Took part in a Base on-chain blockchain workshop and developed a professional portfolio.",
+      "Authored and pitched a digital workplace solution; after approval, led the team implementing it as Full-Stack Developer using Next.js and MongoDB.",
+      "Optimized web pages and built responsive, schema-enhanced comparison pages for an auto-dealer website, applying SEO best practices.",
+      "Contributed as Database Administrator and QA Tester on an office productivity tool built with Laravel Inertia, React, and Supabase.",
+      "Documented system architecture and setup procedures in an Agile team environment to support a clean project handover.",
     ],
     tech: ["Next.js", "MongoDB", "Laravel", "React", "Supabase"],
   },
@@ -253,16 +300,23 @@ export const education = {
 };
 
 export const certifications = [
-  { title: "Base Workshop Participant", issuer: "Base.ph" },
-  { title: "Foundational C# with Microsoft", issuer: "freeCodeCamp" },
+  { title: "Base Workshop Participant", issuer: "Base.ph", year: "2026" },
+  { title: "Foundational C# with Microsoft", issuer: "freeCodeCamp", year: "2026" },
+  { title: "CLICK 2025: IT Education Conference", issuer: "CHED Region 1 | PSITE", year: "2025" },
 ];
 
 /* ── KPIs ─────────────────────────────────────────────────────────── */
 
 export const stats = {
   projects: projects.length,
-  experienceMonths: 6,
-  clients: 2,
+  experienceMonths: experience.reduce((sum, exp) => {
+    const [start, end] = exp.period.split("—").map((s) => s.trim());
+    const startDate = new Date(start);
+    const endDate = new Date(end);
+    const months = (endDate.getFullYear() - startDate.getFullYear()) * 12 + (endDate.getMonth() - startDate.getMonth());
+    return sum + months;
+  }, 0),
+  clients: 3,
   technologies: new Set(skillGroups.flatMap((g) => g.items)).size,
 };
 
