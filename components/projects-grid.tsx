@@ -119,7 +119,7 @@ export function ProjectsGrid() {
         <>
           <p className="mt-6 max-w-2xl text-sm text-muted-foreground">
             Migrations, configuration and deployment don&apos;t leave a product behind, so they&apos;re
-            listed here as tasks.
+            listed here as tasks. Open one to see how it was done.
           </p>
           <div className={cn("mt-6", layout === "grid" ? gridCls : "flex flex-col gap-3")}>
             {tasks.map((t) => (
