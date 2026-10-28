@@ -68,7 +68,7 @@ export function ProjectsPanel({ className }: { className?: string }) {
             >
               <Link
                 href={`/projects/${p.slug}`}
-                className="tile flex h-full w-full cursor-pointer flex-col rounded-xl p-4 text-left"
+                className="tile flex h-full w-full cursor-pointer flex-col rounded-xl p-3.5 text-left"
               >
               <span className="flex items-center justify-between gap-2 text-[11px] text-muted-foreground">
                 <span className="flex items-center gap-1.5">
@@ -78,14 +78,14 @@ export function ProjectsPanel({ className }: { className?: string }) {
                 <span className="font-mono">{p.year}</span>
               </span>
               <span className="mt-2 flex items-start justify-between gap-3">
-                <span className="font-display text-lg font-semibold leading-snug">{p.title}</span>
+                <span className="font-display text-base font-semibold leading-snug">{p.title}</span>
                 <ArrowUpRight className="mt-1 h-4 w-4 shrink-0 text-muted-foreground" aria-hidden />
               </span>
               <span className="mt-1.5 line-clamp-2 text-[13px] leading-relaxed text-muted-foreground">
                 {p.summary}
               </span>
-              <span className="mt-auto flex flex-wrap gap-1 pt-3 [@media(max-height:820px)]:hidden">
-                {p.tags.slice(0, 5).map((t) => (
+              <span className="mt-auto flex flex-wrap gap-1 pt-3 [@media(max-height:760px)]:hidden">
+                {p.tags.slice(0, 4).map((t) => (
                   <Tag key={t}>{t}</Tag>
                 ))}
               </span>

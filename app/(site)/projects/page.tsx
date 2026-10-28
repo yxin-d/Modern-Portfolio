@@ -4,8 +4,8 @@ import { ProjectsGrid } from "@/components/projects-grid";
 import { site } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: `Projects — ${site.name}`,
-  description: "A showcase of full-stack, frontend, and IT infrastructure projects.",
+  title: `Projects & Tasks — ${site.name}`,
+  description: "Web projects I built, plus the migration, configuration and deployment work behind them.",
 };
 
 export default function ProjectsPage() {
@@ -15,10 +15,10 @@ export default function ProjectsPage() {
         eyebrow="Selected work"
         title={
           <>
-            Projects &amp; <span className="text-gradient">case studies.</span>
+            Projects <span className="text-gradient">&amp; tasks.</span>
           </>
         }
-        description="A mix of client infrastructure work and personal builds — filter by what you're after."
+        description="Things I built, and the migration, configuration and deployment work behind them. Use the switch to move between the two."
       />
       <section className="pb-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
