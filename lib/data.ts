@@ -234,20 +234,6 @@ export const projects: Project[] = [
     ],
   },
   {
-    slug: "queue-management-system",
-    title: "Digital Queue Management System",
-    summary:
-      "An internal office tool built by an internship team, where I owned the database and the testing.",
-    description:
-      "An internal office productivity application built by the internship team with Laravel Inertia, React and Supabase. I was the Database Administrator, responsible for schema design, queries and data integrity. I was also the QA Tester, running quality assurance across the application and verifying fixes before handover. MailerSend handles transactional notifications, and the team worked through GitHub with builds pre-hosted on Vercel.",
-    tags: ["Laravel", "Inertia.js", "React", "Supabase", "MailerSend"],
-    category: "Full-Stack",
-    gradient: ["coral", "gold"],
-    context: "Makerspace InnovHub OPC · Mapandan, Pangasinan",
-    role: "Database Administrator · QA Tester",
-    year: "2026",
-  },
-  {
     slug: "nlm-connect",
     title: "NLM Connect — Communication Portal (Capstone)",
     summary:
@@ -260,6 +246,19 @@ export const projects: Project[] = [
     context: "Capstone · Sison, Pangasinan",
     role: "Developer · Capstone team of five",
     year: "2026",
+  },
+  {
+    slug: "queue-management-system",
+    title: "Digital Queue Management System",
+    summary:
+      "A queue management system built as a Systems Analysis and Design course project, before my capstone.",
+    description:
+      "A digital queue management system built for a Systems Analysis and Design course, before my capstone project.",
+    tags: [],
+    category: "Full-Stack",
+    gradient: ["coral", "gold"],
+    context: "Systems Analysis & Design project · Northern Luzon Adventist College",
+    year: "2025",
   },
 ];
 
@@ -417,6 +416,11 @@ function monthIndex(label: string, now = new Date()) {
   const m = MONTHS.indexOf(mon?.slice(0, 3));
   const y = Number(year);
   return m < 0 || !Number.isFinite(y) ? null : y * 12 + m;
+}
+
+/** Start of an experience period as a sortable month index (0 if unreadable). */
+export function periodStart(period: string) {
+  return monthIndex(period.split(/\s*[—–-]\s*/)[0] ?? "") ?? 0;
 }
 
 /** Total months worked, counting overlapping roles only once. */
