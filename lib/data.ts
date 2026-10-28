@@ -108,6 +108,8 @@ export type Project = {
   gradient: [string, string];
   /** Where / for whom, e.g. "DCG Advisory · Remote". */
   context?: string;
+  /** What you did on it, e.g. "Full-Stack Developer · Team lead". Shown on the project page. */
+  role?: string;
   /** Deployed site — shows a "View live" button. */
   liveUrl?: string;
   /** Demo (video, sandbox, prototype) for projects with no public site — "View demo". */
@@ -144,13 +146,14 @@ export const projects: Project[] = [
     slug: "scorebunt",
     title: "ScoreBunt — Live Softball Scoring App",
     summary:
-      "Live scoring and lineup tracker for intramural softball, replacing the pen-and-paper scoresheet. Built solo and deployed on Vercel.",
+      "A scoring and lineup tracker for intramural softball that replaces the pen-and-paper scoresheet and runs entirely on one phone.",
     description:
-      "Built and deployed a live softball scoring web app for alumni intramural games. The batting order is derived from the nine field positions, so there is no separate lineup to maintain, and mid-game substitutions support re-entry the way casual intramural rules allow. An autoscore baserunner tracker advances every runner when a batter reaches base, with a confirmation step and undo on any scored run. Rosters, lineups, and match history persist on the device, so a full game can be scored from a single phone with no backend or sign-in.",
+      "Casual intramural games have no official scorer, and lineups change inning by inning. ScoreBunt keeps the batting order and the score straight from a single phone, with no backend or sign-in. The batting order is derived from the nine field positions, so there is no separate lineup to maintain, and substitutions support re-entry the way casual intramural rules allow. An autoscore baserunner tracker advances every runner when a batter reaches base, with a confirmation step and undo on any scored run. Rosters, lineups and match history are saved on the device.",
     tags: ["Next.js", "TypeScript", "Tailwind CSS", "Zustand", "Vercel"],
     category: "Frontend",
     gradient: ["turquoise", "lime"],
     context: "Personal project · Alumni intramural softball",
+    role: "Solo developer",
     year: "2026",
     liveUrl: "https://scorebunt.yxin.dev",
     repoStatus: "public",
@@ -165,46 +168,35 @@ export const projects: Project[] = [
       "/projects/scorebunt/autoScorerModal.png",
       "/projects/scorebunt/conclusion.png",
       "/projects/scorebunt/gameStats.png",
-      "/projects/scorebunt/postMatchLobby.png"
+      "/projects/scorebunt/postMatchLobby.png",
     ],
   },
   {
     slug: "questflow-resource-management",
     title: "QuestFlow — Gamified Resource Management Platform",
     summary:
-      "Pitched, designed, and led the build of a platform that matches idle interns to unassigned work through skill matching and real-time availability.",
+      "A platform that matches idle interns with unassigned work, built during my internship from a pitch I wrote.",
     description:
-      "Authored and pitched a digital workplace solution during an internship and, after approval, led the team implementing it as Full-Stack Developer. The platform pairs skill-based task matching with real-time availability tracking so available talent and unassigned work find each other instead of getting lost in chat threads. Delivered three role-scoped surfaces (admin, supervisor, worker) with role-based permissions, covering quests, guilds, leaderboards, a help desk, learning modules, and file uploads. A live availability board runs over a custom Node WebSocket server, pushing status changes to supervisor dashboards without a refresh.",
+      "Interns could sit idle while tasks went unassigned, because availability and open work were buried in chat threads. I pitched QuestFlow as a fix and, once it was approved, led the team that built it. It pairs skill-based task matching with real-time availability so the right person and the right task find each other. It has three role-scoped surfaces (admin, supervisor and worker) with role-based permissions, covering quests, guilds, leaderboards, a help desk, learning modules and file uploads. A live availability board runs on a custom Node WebSocket server and pushes status changes to supervisor dashboards without a refresh. It was delivered as a working MVP before the internship ended.",
     tags: ["Next.js", "TypeScript", "MongoDB", "NextAuth", "WebSockets", "Tailwind CSS"],
     category: "Full-Stack",
     gradient: ["gold", "coral"],
     context: "Makerspace InnovHub OPC · Mapandan, Pangasinan",
-    year: "2026",
-  },
-  {
-    slug: "google-workspace-migration",
-    title: "Google Workspace Migration & Infrastructure Hardening",
-    summary:
-      "End-to-end migration from Microsoft 365 to Google Workspace, including DNS configuration, email aliases, and security hardening.",
-    description:
-      "Executed a complete data migration for an organization, transferring emails, documents, and media to Google Workspace. Provisioned email aliases for branch offices, configured Cloudflare DNS records for email routing and DKIM authentication, and deployed custom WordPress sites via cPanel. Troubleshot complex post-migration email issues to ensure business continuity.",
-    tags: ["Google Workspace", "Cloudflare DNS", "cPanel", "WordPress", "DKIM", "Email Migration"],
-    category: "IT & Infrastructure",
-    gradient: ["turquoise", "teal"],
-    context: "DCG Advisory · Remote",
+    role: "Full-Stack Developer · Team lead",
     year: "2026",
   },
   {
     slug: "wordpress-custom-theme",
     title: "Pace Property Group WordPress Website",
     summary:
-      "A WordPress site for a Gold Coast real estate agency, with an editor-friendly theme structure that lets non-technical staff publish without touching code.",
+      "A WordPress site for a Gold Coast real estate agency that its non-technical staff can update without touching code.",
     description:
-      "Built a custom WordPress theme for a property management and sales business, structured so the layout is locked down in PHP while content stays fully editable. Created custom post types for property listings, flexible ACF-backed content blocks, and a structured admin interface covering listings and careers, so staff can publish updates without risking the template. Implemented responsive design and SEO best practices to improve discoverability.",
-    tags: ["WordPress", "PHP", "ACF", "Custom Theme", "SEO"],
+      "The client needed to publish property listings and job openings on their own, without a developer. I built a custom WordPress theme where the page layout is locked down in PHP while the content stays fully editable. Properties are a custom post type with a fill-in-the-blanks admin form (bedrooms, bathrooms, parking, address, price, photo gallery and floorplan), and each listing renders through the template automatically when published. A Careers page works the same way, with open roles managed through an ACF repeater. The site is responsive and follows SEO best practices.",
+    tags: ["WordPress", "PHP", "ACF", "Custom Post Types", "Custom Theme", "SEO"],
     category: "Frontend",
     gradient: ["lavender", "turquoise"],
     context: "DCG Advisory · Gold Coast, Australia (Remote)",
+    role: "Developer · Solo build for the client",
     year: "2026",
     liveUrl: "https://pacepropertygroup.com.au",
     images: [
@@ -221,13 +213,14 @@ export const projects: Project[] = [
     slug: "Outsourcing-Website",
     title: "Outsourcing & Offshoring Services Website",
     summary:
-      "A modern, responsive website for a business consulting firm specializing in outsourcing and offshoring solutions.",
+      "A rework of DCG Advisory's website to reposition the business from general advisory to offshoring and outsourcing.",
     description:
-      "Developed a comprehensive website for a business consulting firm, focusing on showcasing their outsourcing and offshoring services. Implemented a clean, professional design with intuitive navigation and optimized performance for various devices.",
-    tags: ["WordPress", "PHP", "Responsive Design", "CMS"],
+      "DCG Advisory's main service is offshoring and outsourcing, but its site still presented the business as general advisory. I reworked the site's content and structure around that service: a repositioned home page, an About page reframed around the owner, and dedicated How It Works and Services pages. It is built with the native WordPress block editor, so the owner can keep editing the pages himself.",
+    tags: ["WordPress", "Gutenberg", "Responsive Design"],
     category: "Frontend",
     gradient: ["lavender", "turquoise"],
     context: "DCG Advisory · Remote",
+    role: "Developer · Content and structure",
     year: "2026",
     liveUrl: "https://dcgadvisory.com",
     images: [
@@ -244,31 +237,107 @@ export const projects: Project[] = [
     slug: "queue-management-system",
     title: "Digital Queue Management System",
     summary:
-      "Contributed as Database Administrator and QA Tester on an office productivity tool built during an internship.",
+      "An internal office tool built by an internship team, where I owned the database and the testing.",
     description:
-      "Worked on an internal office productivity application built with Laravel Inertia, React, and Supabase. Owned the database layer — schema design, queries, and data integrity — and ran quality assurance testing across the application, reporting and verifying fixes ahead of handover. Integrated MailerSend for transactional notifications and collaborated with the team through GitHub, with builds pre-hosted on Vercel.",
-    tags: ["Laravel", "Inertia", "React", "Supabase", "MailerSend", "QA Testing"],
+      "An internal office productivity application built by the internship team with Laravel Inertia, React and Supabase. I was the Database Administrator, responsible for schema design, queries and data integrity. I was also the QA Tester, running quality assurance across the application and verifying fixes before handover. MailerSend handles transactional notifications, and the team worked through GitHub with builds pre-hosted on Vercel.",
+    tags: ["Laravel", "Inertia.js", "React", "Supabase", "MailerSend"],
     category: "Full-Stack",
     gradient: ["coral", "gold"],
     context: "Makerspace InnovHub OPC · Mapandan, Pangasinan",
+    role: "Database Administrator · QA Tester",
     year: "2026",
   },
   {
     slug: "nlm-connect",
     title: "NLM Connect — Communication Portal (Capstone)",
     summary:
-      "A web portal centralizing announcements, messaging, and events for a regional church organization spanning six provinces.",
+      "A web portal that centralizes announcements, messaging and events for a church organization spanning six provinces.",
     description:
-      "Developed a web-based communication portal as a five-person capstone team, replacing fragmented announcements scattered across social media and group chats. Built role-based access for four user types — admin, worker, communication representative, and public — with a centralized announcement feed organized by department and date, structured role-based messaging, a calendar-based event board, and a public inquiry form routed to the right office. Delivered using an iterative waterfall approach, from stakeholder interviews through unit, integration, and system testing.",
-    tags: ["Laravel", "Livewire", "Blade", "Tailwind CSS", "MySQL", "MVC"],
+      "The organization's announcements were scattered across social media and group chats. As a five-person capstone team we built a single portal to replace them, with role-based access for four types of users: admin, worker, communication representative and public. It has a central announcement feed organized by department and date, structured role-based messaging, a calendar-based event board, and a public inquiry form routed to the right office. We followed an iterative waterfall process, from stakeholder interviews through unit, integration and system testing. It is not currently hosted.",
+    tags: ["Laravel", "Livewire", "Blade", "Tailwind CSS", "MySQL"],
     category: "Full-Stack",
     gradient: ["lime", "gold"],
     context: "Capstone · Sison, Pangasinan",
+    role: "Developer · Capstone team of five",
     year: "2026",
   },
 ];
 
-export const projectCategories = ["All", "Full-Stack", "IT & Infrastructure", "Frontend"] as const;
+/** Filter chips for the projects page: only categories that have a project. */
+export const projectCategories = [
+  "All",
+  ...new Set(projects.map((p) => p.category)),
+] as ("All" | Project["category"])[];
+
+/* ── Tasks ────────────────────────────────────────────────────────── */
+
+/**
+ * Procedural work with no product to show: migrations, configuration, deployment, support.
+ * Each task lists the procedure that was followed instead of screenshots and links.
+ */
+export type Task = {
+  slug: string;
+  title: string;
+  kind: "Migration" | "Configuration" | "Deployment" | "Support";
+  summary: string;
+  /** The procedure, in order. */
+  steps: string[];
+  tools: string[];
+  context: string;
+  year: string;
+};
+
+export const tasks: Task[] = [
+  {
+    slug: "m365-to-google-workspace-migration",
+    title: "Microsoft 365 → Google Workspace migration",
+    kind: "Migration",
+    summary:
+      "Moved an organization's email, documents and media from Microsoft 365 to Google Workspace with minimal downtime.",
+    steps: [
+      "Planned the migration and the cutover.",
+      "Transferred emails, documents and media into Google Workspace.",
+      "Rerouted mail flow by updating the domain's DNS records in Cloudflare.",
+      "Created alternate email aliases and forwards so no address stopped working.",
+      "Set up DKIM so outgoing mail stayed authenticated.",
+      "Troubleshot post-migration email issues until mail was stable.",
+    ],
+    tools: ["Google Workspace", "Microsoft 365", "Cloudflare", "DKIM"],
+    context: "DCG Advisory · Remote",
+    year: "2026",
+  },
+  {
+    slug: "email-dns-authentication",
+    title: "Email DNS & authentication setup",
+    kind: "Configuration",
+    summary:
+      "Configured a domain's DNS so its email is delivered and its sender identity is verified.",
+    steps: [
+      "Pointed the domain's MX records at the mail provider.",
+      "Published an SPF record listing the servers allowed to send for the domain.",
+      "Generated a DKIM key in Google Workspace and published it in DNS.",
+      "Added a DMARC policy to tell receiving servers how to treat failed checks.",
+    ],
+    tools: ["Cloudflare", "Google Workspace", "SPF", "DKIM", "DMARC"],
+    context: "DCG Advisory · Remote",
+    year: "2026",
+  },
+  {
+    slug: "wordpress-cpanel-deployment",
+    title: "WordPress deployment & hosting upkeep",
+    kind: "Deployment",
+    summary:
+      "Deployed the client's WordPress sites to production on cPanel hosting and kept the environment stable.",
+    steps: [
+      "Set up the site on the cPanel hosting account.",
+      "Deployed the finished WordPress site to production.",
+      "Kept the hosting environment and the site up to date.",
+    ],
+    tools: ["cPanel", "WordPress"],
+    context: "DCG Advisory · Remote",
+    year: "2026",
+  },
+];
 
 /* ── Experience, education, certifications ────────────────────────── */
 

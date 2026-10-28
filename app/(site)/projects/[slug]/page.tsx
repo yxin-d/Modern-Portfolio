@@ -44,6 +44,11 @@ export default async function ProjectPage({ params }: { params: Promise<Params> 
           {p.category} · {p.year}
         </p>
         {p.context && <p className="mt-1 text-sm text-muted-foreground">{p.context}</p>}
+        {p.role && (
+          <p className="mt-1 text-sm text-muted-foreground">
+            <span className="font-medium text-foreground">Role:</span> {p.role}
+          </p>
+        )}
         <h1 className="mt-3 max-w-3xl font-display text-3xl font-bold tracking-tight sm:text-5xl">
           {p.title}
         </h1>
